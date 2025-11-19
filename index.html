@@ -1,1 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>O Código do Poder</title>
+<meta name="description" content="Treinamento estratégico de comunicação persuasiva e influência. Desenvolva sua mente alfa e domine qualquer situação social e profissional.">
+<meta property="og:title" content="O Código do Poder">
+<meta property="og:description" content="Treinamento estratégico de comunicação persuasiva e influência. Desenvolva sua mente alfa e domine qualquer situação social e profissional.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="link_da_imagem_og.jpg">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<style>
+/* Reset e tipografia */
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Anton',sans-serif;}
+body{background:#000;color:#fff;line-height:1.5;}
+a{text-decoration:none;color:inherit;}
+button{cursor:pointer;}
+.container{width:90%;max-width:1200px;margin:0 auto;}
+
+/* Hero */
+.hero{height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:#000;color:#fff;position:relative;}
+.hero h1{font-size:3rem;color:#FFD700;text-shadow:2px 2px 10px #000;margin-bottom:1rem;}
+.hero p{font-size:1.2rem;margin-bottom:2rem;}
+.hero .cta{padding:1rem 2rem;background:#FFD700;color:#000;font-weight:bold;border:none;border-radius:10px;transition:0.3s;}
+.hero .cta:hover{background:#e6c200;transform:scale(1.05);}
+
+/* Seção módulos */
+.modules{padding:5rem 0;background:#111;}
+.modules h2{text-align:center;font-size:2.5rem;color:#FFD700;margin-bottom:3rem;}
+.modules-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem;}
+.module-card{background:#1a1a1a;padding:1.5rem;border-radius:15px;text-align:center;transition:0.3s;cursor:pointer;}
+.module-card:hover{transform:translateY(-10px);}
+.module-card img{width:100%;border-radius:10px;margin-bottom:1rem;}
+.module-card h3{color:#FFD700;font-size:1.5rem;margin-bottom:.5rem;}
+.module-card p{font-size:1rem;color:#fff;}
+
+/* Especialistas */
+.experts{padding:5rem 0;background:#000;}
+.experts h2{text-align:center;font-size:2.5rem;color:#FFD700;margin-bottom:3rem;}
+.experts-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;}
+.flip-card{background:#111;perspective:1000px;border-radius:15px;}
+.flip-card-inner{position:relative;width:100%;height:300px;text-align:center;transition:transform 0.8s;transform-style:preserve-3d;border-radius:15px;}
+.flip-card:hover .flip-card-inner{transform:rotateY(180deg);}
+.flip-card-front, .flip-card-back{position:absolute;width:100%;height:100%;backface-visibility:hidden;border-radius:15px;}
+.flip-card-front{background:#1a1a1a;color:#fff;display:flex;flex-direction:column;justify-content:center;align-items:center;}
+.flip-card-front img{border-radius:50%;width:100px;height:100px;margin-bottom:1rem;}
+.flip-card-back{background:#FFD700;color:#000;transform:rotateY(180deg);display:flex;justify-content:center;align-items:center;padding:1rem;}
+
+/* Depoimentos */
+.testimonials{padding:5rem 0;background:#111;}
+.testimonials h2{text-align:center;font-size:2.5rem;color:#FFD700;margin-bottom:3rem;}
+.testimonials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem;}
+.testimonial-card{background:#1a1a1a;padding:1.5rem;border-radius:15px;position:relative;cursor:pointer;transition:0.3s;}
+.testimonial-card:hover{transform:translateY(-5px);}
+.testimonial-card p{color:#fff;font-size:1rem;}
+.modal{display:none;position:fixed;z-index:1000;left:0;top:0;width:100%;height:100%;overflow:auto;background:rgba(0,0,0,0.9);}
+.modal-content{background:#000;margin:10% auto;padding:2rem;border:1px solid #888;width:80%;max-width:600px;color:#fff;border-radius:15px;position:relative;}
+.close{color:#FFD700;position:absolute;top:10px;right:25px;font-size:2rem;font-weight:bold;cursor:pointer;}
+
+/* WhatsApp CTA */
+.whatsapp-cta{position:fixed;bottom:30px;right:30px;background:#25D366;color:#fff;padding:1rem 1.5rem;border-radius:50px;font-size:1.2rem;font-weight:bold;display:flex;align-items:center;gap:0.5rem;z-index:999;transition:0.3s;}
+.whatsapp-cta:hover{transform:scale(1.1);}
+.whatsapp-cta img{width:24px;height:24px;}
+
+/* Responsivo */
+@media(max-width:768px){.hero h1{font-size:2.2rem;} .hero p{font-size:1rem;} .flip-card-inner{height:250px;}}
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<section class="hero">
+<h1>O Código do Poder</h1>
+<p>Treinamento estratégico de comunicação persuasiva e influência. Desenvolva sua mente alfa e domine qualquer situação.</p>
+<a href="#modules" class="cta">Comece Agora</a>
+</section>
+
+<!-- Módulos -->
+<section class="modules" id="modules">
+<h2>Módulos do Treinamento</h2>
+<div class="modules-grid">
+<div class="module-card">
+<img src="modulo1.jpg" alt="Módulo 1">
+<h3>Mente Alfa</h3>
+<p>Aprenda a dominar sua mente e agir com confiança absoluta.</p>
+</div>
+<div class="module-card">
+<img src="modulo2.jpg" alt="Módulo 2">
+<h3>Comunicação Persuasiva</h3>
+<p>Influencie decisões e conquiste resultados sem esforço.</p>
+</div>
+<div class="module-card">
+<img src="modulo3.jpg" alt="Módulo 3">
+<h3>Liderança e Influência</h3>
+<p>Comporte-se como um líder nato e inspire respeito imediato.</p>
+</div>
+</div>
+</section>
+
+<!-- Especialistas -->
+<section class="experts">
+<h2>Especialistas</h2>
+<div class="experts-grid">
+<div class="flip-card">
+<div class="flip-card-inner">
+<div class="flip-card-front">
+<img src="expert1.jpg" alt="Especialista 1">
+<h3>Bruno</h3>
+<p>Instrutor principal</p>
+</div>
+<div class="flip-card-back">
+<p>Especialista em comunicação persuasiva, liderança e mentalidade alfa.</p>
+</div>
+</div>
+</div>
+<div class="flip-card">
+<div class="flip-card-inner">
+<div class="flip-card-front">
+<img src="expert2.jpg" alt="Especialista 2">
+<h3>Gabriel</h3>
+<p>Co-instrutor</p>
+</div>
+<div class="flip-card-back">
+<p>Expert em influência social, técnicas de negociação e desenvolvimento pessoal.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Depoimentos -->
+<section class="testimonials">
+<h2>Depoimentos</h2>
+<div class="testimonials-grid">
+<div class="testimonial-card" data-modal="modal1">
+<p>"Esse treinamento mudou minha vida, agora sou mais confiante e persuasivo!"</p>
+</div>
+<div class="testimonial-card" data-modal="modal2">
+<p>"Aprendi técnicas que me ajudam em qualquer situação profissional."</p>
+</div>
+</div>
+</section>
+
+<!-- Modal -->
+<div id="modal1" class="modal">
+<div class="modal-content">
+<span class="close">&times;</span>
+<p>Depoimento completo 1: Transformou minha vida pessoal e profissional de forma impressionante!</p>
+</div>
+</div>
+<div id="modal2" class="modal">
+<div class="modal-content">
+<span class="close">&times;</span>
+<p>Depoimento completo 2: Aprendi a influenciar e liderar com confiança absoluta!</p>
+</div>
+</div>
+
+<!-- WhatsApp CTA -->
+<a href="https://wa.me/seunumerodetelefone" target="_blank" class="whatsapp-cta">
+<img src="whatsapp-icon.png" alt="WhatsApp"> Fale Conosco
+</a>
+
+<script>
+// Modal
+const modalBtns = document.querySelectorAll('.testimonial-card');
+const modals = document.querySelectorAll('.modal');
+const closeBtns = document.querySelectorAll('.close');
+
+modalBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.getElementById(btn.dataset.modal).style.display = 'block';
+  });
+});
+closeBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    btn.parentElement.parentElement.style.display = 'none';
+  });
+});
+window.onclick = function(e){
+  modals.forEach(modal => {
+    if(e.target == modal) modal.style.display = 'none';
+  });
+}
+</script>
+
+</body>
+</html>
 
