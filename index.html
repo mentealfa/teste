@@ -6,87 +6,157 @@
 
 <title>Código Alpha</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;800&display=swap" rel="stylesheet">
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
 <style>
 
-/* BASE */
+/* RESET */
+*{margin:0;padding:0;box-sizing:border-box;}
+
 body{
-margin:0;
 font-family:'Inter',sans-serif;
 background:#050505;
 color:#eaeaea;
-overflow-x:hidden;
+line-height:1.6;
 }
 
-/* SECTION */
-.section{
-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
-position:relative;
+/* CONTAINER */
+.container{
+max-width:1100px;
+margin:auto;
+padding:120px 20px;
 }
 
-/* WRAPPER */
-.wrapper{
-max-width:800px;
+/* HERO */
+.hero{
 text-align:center;
-padding:20px;
+padding:160px 20px 120px;
 }
 
-/* TEXT */
-h1{
-font-size:3.6rem;
+.hero h1{
+font-size:3.5rem;
 font-weight:800;
-letter-spacing:-1.5px;
 line-height:1.2;
+letter-spacing:-1px;
 }
 
-p{
-font-size:1.1rem;
-color:#8a8a8a;
-margin-top:20px;
-line-height:1.7;
-}
-
-/* GOLD */
-.gold{
+.hero h1 span{
 color:#c6a96b;
 }
 
-/* VIDEO */
-.video{
-border-radius:20px;
-overflow:hidden;
-box-shadow:0 80px 200px rgba(0,0,0,0.95);
+.hero p{
+margin-top:25px;
+color:#9a9a9a;
+font-size:1.2rem;
+max-width:600px;
+margin-inline:auto;
 }
 
 /* BUTTON */
 .btn{
-margin-top:40px;
 display:inline-block;
-padding:14px 40px;
+margin-top:40px;
+padding:16px 40px;
 border-radius:999px;
-border:1px solid rgba(198,169,107,0.5);
+border:1px solid rgba(198,169,107,0.4);
 color:#c6a96b;
 text-decoration:none;
-opacity:0;
+transition:0.3s;
 }
 
-/* ANIMATION BASE */
-.fade{
-opacity:0;
-transform:translateY(60px) scale(0.98);
-filter:blur(8px);
+.btn:hover{
+background:rgba(198,169,107,0.08);
+}
+
+/* DIVIDER */
+.divider{
+height:1px;
+background:rgba(255,255,255,0.06);
+margin:100px 0;
+}
+
+/* SECTIONS */
+.section{
+padding:120px 20px;
+text-align:center;
+}
+
+.section h2{
+font-size:2.4rem;
+font-weight:600;
+}
+
+.section p{
+margin-top:20px;
+color:#9a9a9a;
+}
+
+/* GRID */
+.grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:30px;
+margin-top:50px;
+}
+
+.card{
+padding:30px;
+border:1px solid rgba(255,255,255,0.05);
+border-radius:12px;
+background:rgba(255,255,255,0.01);
+}
+
+/* VIDEO */
+.video{
+margin-top:50px;
+border-radius:16px;
+overflow:hidden;
+box-shadow:0 40px 100px rgba(0,0,0,0.8);
+}
+
+/* OFFER */
+.price{
+margin-top:20px;
+font-size:2.2rem;
+font-weight:700;
+}
+
+.price span{
+color:#c6a96b;
+}
+
+.counter{
+margin-top:10px;
+color:#777;
+font-size:0.9rem;
+}
+
+/* FORM */
+.form{
+margin-top:40px;
+max-width:400px;
+margin-inline:auto;
+}
+
+.form input{
+width:100%;
+padding:16px;
+margin-top:12px;
+background:transparent;
+border:none;
+border-bottom:1px solid rgba(255,255,255,0.1);
+color:#fff;
+}
+
+.form input:focus{
+outline:none;
+border-color:#c6a96b;
 }
 
 /* RESPONSIVO */
 @media(max-width:768px){
-h1{font-size:2.2rem;}
+.hero h1{font-size:2.2rem;}
+.grid{grid-template-columns:1fr;}
 }
 
 </style>
@@ -94,134 +164,104 @@ h1{font-size:2.2rem;}
 
 <body>
 
-<!-- AUDIO INVISÍVEL -->
-<audio autoplay loop>
-<source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8b4f2f5f3.mp3?filename=ambient-110397.mp3" type="audio/mp3">
-</audio>
+<!-- HERO -->
+<section class="hero">
 
-<!-- SCENE 1 -->
-<section class="section">
-<div class="wrapper">
-<h1 class="fade">Você não está travado.</h1>
-</div>
-</section>
+<h1>
+Você não está travado.<br>
+<span>Você está condicionado.</span>
+</h1>
 
-<!-- SCENE 2 -->
-<section class="section">
-<div class="wrapper">
-<h1 class="fade">Você está repetindo um padrão.</h1>
-</div>
-</section>
-
-<!-- SCENE 3 -->
-<section class="section">
-<div class="wrapper">
-<h1 class="fade gold">E isso está moldando sua vida.</h1>
-</div>
-</section>
-
-<!-- SCENE 4 -->
-<section class="section">
-<div class="wrapper">
-<p class="fade">
-Existe um sistema invisível interferindo nas suas decisões,
-antes mesmo de você perceber.
+<p>
+Existe um padrão invisível que bloqueia ação,
+mesmo quando você sabe exatamente o que fazer.
 </p>
-</div>
+
+<a href="#" class="btn">Acessar agora</a>
+
 </section>
 
-<!-- SCENE 5 -->
+<div class="divider"></div>
+
+<!-- CONFRONTO -->
 <section class="section">
-<div class="wrapper">
-<h1 class="fade">PDA</h1>
-<p class="fade">Protocolo de Defesa Automática</p>
-</div>
+
+<h2>Não é falta de disciplina.</h2>
+<p>É auto-sabotagem estruturada.</p>
+
+<div class="divider"></div>
+
+<h2>Não é preguiça.</h2>
+<p>É um sistema te protegendo do crescimento.</p>
+
+<div class="divider"></div>
+
+<h2>Não é falta de foco.</h2>
+<p>É um padrão rodando no fundo.</p>
+
 </section>
 
-<!-- SCENE 6 -->
+<!-- MECANISMO -->
 <section class="section">
-<div class="wrapper">
-<p class="fade">
-Ele evita risco.<br>
-Mas também elimina crescimento.<br><br>
-E mantém você exatamente onde está.
+
+<h2>PDA — Protocolo de Defesa Automática</h2>
+
+<p>
+Seu cérebro prefere te manter seguro do que te deixar evoluir.
 </p>
+
+<div class="grid">
+<div class="card">Evita risco</div>
+<div class="card">Bloqueia ação</div>
+<div class="card">Cria distração</div>
 </div>
+
 </section>
 
-<!-- SCENE 7 VSL -->
+<!-- VSL -->
 <section class="section">
-<div class="wrapper">
 
-<div class="video fade">
-<iframe width="100%" height="420"
+<h2>Assista isso com atenção</h2>
+
+<div class="video">
+<iframe width="100%" height="450"
 src="https://www.youtube.com/embed/dQw4w9WgXcQ"
 frameborder="0"
 allowfullscreen></iframe>
 </div>
 
-</div>
 </section>
 
-<!-- SCENE 8 CTA -->
+<!-- OFERTA -->
 <section class="section">
-<div class="wrapper">
 
-<h1 class="fade">A decisão é sua.</h1>
+<h2>Acesso liberado hoje</h2>
 
-<p class="fade">
-Continuar repetindo…<br>
-ou interromper o padrão.
-</p>
+<p>Não ficará disponível permanentemente.</p>
 
-<a href="#" class="btn" id="cta">Solicitar acesso</a>
-
+<div class="price">
+De R$197 por <span>R$47</span>
 </div>
+
+<p class="counter">Restam 19 acessos</p>
+
+<div class="form">
+<input placeholder="Seu nome">
+<input placeholder="Seu e-mail">
+<a href="#" class="btn">Liberar acesso</a>
+</div>
+
 </section>
 
-<script>
+<!-- FINAL -->
+<section class="section">
 
-gsap.registerPlugin(ScrollTrigger);
+<h2>Você já sabe.</h2>
+<h2 style="color:#c6a96b;">Agora é decidir.</h2>
 
-/* TIMELINE POR SEÇÃO */
-gsap.utils.toArray(".section").forEach((section)=>{
+<a href="#" class="btn">Entrar no Código Alpha</a>
 
-const elements = section.querySelectorAll(".fade");
-
-gsap.timeline({
-scrollTrigger:{
-trigger:section,
-start:"top top",
-end:"+=400",
-scrub:1,
-pin:true
-}
-})
-.to(elements,{
-opacity:1,
-y:0,
-scale:1,
-filter:"blur(0px)",
-stagger:0.3,
-duration:1.5,
-ease:"power3.out"
-});
-
-});
-
-/* CTA FINAL */
-gsap.to("#cta",{
-scrollTrigger:{
-trigger:"#cta",
-start:"top 80%"
-},
-opacity:1,
-y:0,
-duration:1.2,
-delay:0.5
-});
-
-</script>
+</section>
 
 </body>
 </html>
