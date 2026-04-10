@@ -242,7 +242,58 @@ animation:moveGlow 12s infinite alternate;
 100%{transform:translate(200px,200px);}
 }
 
+<style>
+
+/* VSL PREMIUM */
+.video-premium{
+margin-top:40px;
+position:relative;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 30px 80px rgba(0,0,0,0.8);
+}
+
+.video-premium iframe{
+width:100%;
+height:500px;
+border:none;
+}
+
+.video-overlay{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+background:rgba(0,0,0,0.6);
+padding:14px 25px;
+border-radius:30px;
+font-weight:600;
+letter-spacing:1px;
+}
+
+/* PROVA */
+.proof-box{
+margin-top:30px;
+padding:20px;
+background:rgba(255,255,255,0.03);
+border-radius:15px;
+}
+
+/* CHECKOUT */
+.checkout-premium{
+margin-top:30px;
+padding:30px;
+background:rgba(255,255,255,0.03);
+border-radius:20px;
+}
+
+/* RESPONSIVO */
+@media(max-width:768px){
+.video-premium iframe{height:250px;}
+}
+
 </style>
+
 </head>
 
 <body>
@@ -322,6 +373,64 @@ rodando no fundo.
 
 </section>
 
+  <section class="section reveal">
+
+<h2 style="text-align:center;">Assista antes que saia</h2>
+
+<div class="video-premium">
+    <div class="video-overlay">▶ ASSISTIR AGORA</div>
+    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"></iframe>
+</div>
+
+</section>
+
+  <section class="section reveal">
+
+<h2>O que está acontecendo agora</h2>
+
+<div class="proof-box">
+    <p id="proof-text">Carregando atividade...</p>
+</div>
+
+</section>
+
+  <section class="section reveal">
+
+<h2>Acesso liberado hoje</h2>
+
+<p style="margin-top:10px;color:#aaa;">
+Você não vai ver isso aberto sempre.
+</p>
+
+<h3 style="margin-top:20px;font-size:2rem;">
+De R$197 por apenas <span style="color:#d4af37;">R$47</span>
+</h3>
+
+<p class="counter">
+Restam apenas <span id="spots2">19</span> acessos disponíveis
+</p>
+
+<div class="checkout-premium">
+<input placeholder="Seu nome">
+<input placeholder="Seu e-mail">
+
+<p style="font-size:12px;opacity:.6;margin-top:10px;">
+🔒 Ambiente seguro. Seus dados estão protegidos.
+</p>
+
+<a href="#" class="btn">LIBERAR MEU ACESSO</a>
+</div>
+
+</section>
+
+  <section class="section reveal" style="text-align:center;">
+
+<h2>Você já sabe o que precisa fazer.</h2>
+<h2 style="color:#d4af37;">Agora é só parar de fugir.</h2>
+
+<a href="#" class="btn">ACESSAR O CÓDIGO ALPHA</a>
+
+</section>
 <script>
 
 // SCROLL REVEAL AVANÇADO
@@ -370,6 +479,33 @@ let offset = window.scrollY * 0.3;
 bg.style.transform = `translateY(${offset}px)`;
 });
 });
+
+  // PROVA SOCIAL DINÂMICA
+const proofs = [
+"João acabou de acessar",
+"Carlos iniciou o processo",
+"Rafael entrou no sistema",
+"Marcos desbloqueou o acesso",
+"Lucas começou agora"
+];
+
+setInterval(()=>{
+const el = document.getElementById("proof-text");
+if(el){
+const random = proofs[Math.floor(Math.random()*proofs.length)];
+el.innerText = random;
+}
+},4000);
+
+// ESCASSEZ
+let spots2 = 19;
+
+setInterval(()=>{
+if(spots2 > 5){
+spots2--;
+document.getElementById("spots2").innerText = spots2;
+}
+},7000);
 
 </script>
 
