@@ -7,6 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
+
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
@@ -15,25 +16,48 @@ body {
 }
 
 .container {
-  max-width: 900px;
+  max-width: 1100px;
   margin: auto;
-  padding: 60px 20px;
+  padding: 80px 20px;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.flex.reverse {
+  flex-direction: row-reverse;
+}
+
+.text {
+  flex: 1;
+}
+
+.image {
+  flex: 1;
+}
+
+.image img {
+  width: 100%;
+  border-radius: 12px;
 }
 
 h1 {
-  font-size: 42px;
+  font-size: 48px;
   font-weight: 700;
   line-height: 1.2;
 }
 
 h2 {
-  font-size: 28px;
-  margin-top: 60px;
+  font-size: 32px;
 }
 
 p {
   font-size: 18px;
-  color: #444;
+  color: #555;
   line-height: 1.6;
 }
 
@@ -43,123 +67,130 @@ p {
   padding: 14px 28px;
   text-decoration: none;
   display: inline-block;
-  margin-top: 25px;
+  margin-top: 20px;
   border-radius: 6px;
-  font-weight: 500;
+}
+
+/* ANIMAÇÃO */
+
+.fade {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.fade.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .section {
-  margin-top: 80px;
-}
-
-.center {
-  text-align: center;
+  margin-bottom: 100px;
 }
 
 .light {
-  background: #f7f7f7;
-  padding: 60px 20px;
-  border-radius: 10px;
+  background: #f5f5f5;
 }
-</style>
 
+@media(max-width: 768px){
+  .flex {
+    flex-direction: column;
+  }
+}
+
+</style>
 </head>
 
 <body>
 
-<div class="container">
-
 <!-- HERO -->
 
-<h1>Assuma o Controle da Sua Mente<br>e Construa uma Versão Mais Forte de Você</h1>
+<div class="container flex section fade">
 
-<p>O Código Alfa é um método simples e direto para desenvolver foco, disciplina e clareza mental — mesmo que hoje você se sinta perdido.</p>
-
+<div class="text">
+<h1>Assuma o Controle da Sua Mente e Construa uma Versão Mais Forte</h1>
+<p>O Código Alfa é um método direto para desenvolver foco, disciplina e clareza mental.</p>
 <a href="#" class="btn">Começar agora</a>
+</div>
+
+<div class="image">
+<img src="https://images.unsplash.com/photo-1556157382-97eda2f9e2bf" alt="">
+</div>
 
 </div>
 
 <!-- BLOCO 1 -->
 
-<div class="container section">
+<div class="container flex reverse section fade">
 
+<div class="text">
 <h2>Você não está sem motivação</h2>
+<p>Você só nunca foi ensinado a controlar sua mente.</p>
+<p>Você foi condicionado a evitar esforço e buscar conforto.</p>
+</div>
 
-<p>Na verdade, você só nunca foi ensinado a controlar sua própria mente.</p>
-
-<p>Desde cedo, você foi condicionado a buscar conforto, evitar esforço e duvidar das suas capacidades.</p>
-
-<p>O resultado disso é uma vida travada, sem direção e cheia de tentativas frustradas.</p>
+<div class="image">
+<img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe" alt="">
+</div>
 
 </div>
 
 <!-- BLOCO 2 -->
 
-<div class="container section light">
+<div class="container flex section fade light">
 
+<div class="text">
 <h2>O que é o Código Alfa</h2>
+<p>Um sistema direto que muda sua forma de pensar e agir.</p>
+<p>Sem motivação falsa. Apenas execução.</p>
+</div>
 
-<p>O Código Alfa é um sistema que te ensina a desenvolver controle mental, foco e disciplina na prática.</p>
-
-<p>Sem frases motivacionais. Sem teoria desnecessária.</p>
-
-<p>Apenas um processo direto que muda a forma como você pensa e age.</p>
+<div class="image">
+<img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c" alt="">
+</div>
 
 </div>
 
 <!-- BLOCO 3 -->
 
-<div class="container section">
+<div class="container flex reverse section fade">
 
-<h2>O que você vai desenvolver</h2>
+<div class="text">
+<h2>O que você desenvolve</h2>
+<p>Clareza mental. Foco. Disciplina. Controle emocional.</p>
+</div>
 
-<p>- Clareza mental para tomar decisões</p>
-<p>- Foco para executar sem distrações</p>
-<p>- Disciplina para manter consistência</p>
-<p>- Controle emocional em momentos difíceis</p>
+<div class="image">
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" alt="">
+</div>
 
 </div>
 
-<!-- BLOCO 4 -->
+<!-- BLOCO FINAL -->
 
-<div class="container section light">
+<div class="container section fade" style="text-align:center;">
 
-<h2>Para quem é</h2>
-
-<p>Para pessoas que sentem que podem mais, mas não conseguem sair do lugar.</p>
-
-<p>Para quem quer assumir o controle da própria vida sem depender de motivação externa.</p>
-
-</div>
-
-<!-- BLOCO 5 -->
-
-<div class="container section">
-
-<h2>O que você recebe</h2>
-
-<p>- Acesso completo ao Código Alfa</p>
-<p>- Estrutura prática de aplicação diária</p>
-<p>- Exercícios de reprogramação mental</p>
-<p>- Métodos de foco e disciplina</p>
+<h2>Comece agora</h2>
+<p>Você só precisa tomar uma decisão.</p>
 
 <a href="#" class="btn">Quero acessar</a>
 
 </div>
 
-<!-- FINAL -->
+<!-- SCRIPT ANIMAÇÃO -->
 
-<div class="container section center">
+<script>
+const elements = document.querySelectorAll('.fade');
 
-<h2>Comece agora</h2>
-
-<p>Você não precisa esperar o momento perfeito.</p>
-
-<p>Você só precisa começar.</p>
-
-<a href="#" class="btn">Começar agora</a>
-
-</div>
+window.addEventListener('scroll', () => {
+  elements.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if(top < window.innerHeight - 100){
+      el.classList.add('show');
+    }
+  });
+});
+</script>
 
 </body>
 </html>
