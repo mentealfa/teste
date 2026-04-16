@@ -1,272 +1,154 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mente Alfa Premium</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<style>
-body{
-  margin:0;
-  background:#050505;
-  color:#fff;
-  font-family:'Poppins',sans-serif;
-  line-height:1.7;
-}
-
-.container{
-  width:90%;
-  max-width:1150px;
-  margin:auto;
-}
-
-section{
-  padding:100px 0;
-}
-
-h1,h2,h3{
-  font-family:'Playfair Display',serif;
-  margin-bottom:25px;
-  line-height:1.2;
-}
-
-.gold{
-  color:#d4af37;
-}
-
-.center{
-  text-align:center;
-}
-
-.cta{
-  display:inline-block;
-  background:linear-gradient(135deg,#f5d77a,#c89b1f);
-  color:#000;
-  padding:20px 42px;
-  border-radius:50px;
-  font-weight:700;
-  text-decoration:none;
-  box-shadow:0 10px 35px rgba(212,175,55,.35);
-  transition:.3s;
-}
-
-.cta:hover{
-  transform:translateY(-3px);
-  box-shadow:0 15px 40px rgba(212,175,55,.5);
-}
-
-.card-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:25px;
-}
-
-.card{
-  background:rgba(255,255,255,.03);
-  border:1px solid rgba(212,175,55,.15);
-  border-radius:20px;
-  padding:30px;
-  backdrop-filter:blur(10px);
-  box-shadow:0 10px 30px rgba(0,0,0,.4);
-}
-
-.price-box{
-  background:linear-gradient(180deg,#111,#080808);
-  border:1px solid rgba(212,175,55,.25);
-  border-radius:30px;
-  padding:60px 40px;
-  box-shadow:0 0 40px rgba(212,175,55,.08);
-}
-
-.old{
-  text-decoration:line-through;
-  color:#888;
-}
-
-.price{
-  font-size:64px;
-  color:#d4af37;
-  font-weight:700;
-}
-
-.faq details{
-  background:#111;
-  border-radius:14px;
-  margin-bottom:18px;
-  padding:22px;
-  border:1px solid rgba(212,175,55,.12);
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mente Alfa | Reprograme sua mente</title>
+  <style>
+    :root{
+      --gold:#d4af37;
+      --gold-light:#f6e7a8;
+      --bg:#050505;
+      --card:#111;
+      --text:#f5f5f5;
+      --muted:#bdbdbd;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+    body{background:var(--bg);color:var(--text);line-height:1.6}
+    .container{max-width:1180px;margin:auto;padding:0 24px}
+    section{padding:90px 0}
+    h1,h2,h3{line-height:1.2}
+    .gold{color:var(--gold)}
+    .btn{
+      display:inline-block;background:linear-gradient(90deg,var(--gold-light),var(--gold));
+      color:#000;padding:18px 34px;border-radius:14px;text-decoration:none;
+      font-weight:700;box-shadow:0 0 30px rgba(212,175,55,.25)
+    }
+    .hero{padding:110px 0;background:radial-gradient(circle at top,rgba(212,175,55,.08),transparent 35%)}
+    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center}
+    .badge{display:inline-block;padding:8px 16px;border:1px solid rgba(212,175,55,.4);border-radius:999px;color:var(--gold);margin-bottom:22px}
+    h1{font-size:56px;margin-bottom:20px}
+    .sub{font-size:20px;color:var(--muted);margin-bottom:30px;max-width:650px}
+    .mini-benefits{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:35px 0}
+    .mini-benefits div,.card,.faq-item{background:var(--card);border:1px solid rgba(212,175,55,.15);border-radius:18px;padding:18px}
+    .hero img{width:100%;filter:drop-shadow(0 0 30px rgba(212,175,55,.2))}
+    .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+    .card h3{color:var(--gold);margin-bottom:10px}
+    .center{text-align:center}
+    .mechanism{background:#090909}
+    .offer-box{max-width:760px;margin:40px auto 0;background:linear-gradient(180deg,#101010,#090909);padding:42px;border-radius:24px;border:2px solid var(--gold);text-align:center;box-shadow:0 0 40px rgba(212,175,55,.15)}
+    .offer-box ul{list-style:none;text-align:left;margin:24px 0}
+    .offer-box li{padding:12px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+    .price-old{text-decoration:line-through;color:#888;font-size:22px}
+    .price-new{font-size:64px;color:var(--gold);font-weight:700}
+    .faq-wrap{max-width:900px;margin:auto;display:grid;gap:18px}
+    .faq-item summary{cursor:pointer;color:var(--gold);font-weight:700}
+    footer{padding:30px;text-align:center;color:#777;border-top:1px solid rgba(255,255,255,.05)}
+    @media(max-width:900px){
+      .hero-grid,.grid-4{grid-template-columns:1fr}
+      h1{font-size:38px}
+      .mini-benefits{grid-template-columns:1fr}
+      .price-new{font-size:46px}
+    }
+  </style>
 </head>
 <body>
 
-<!-- HERO -->
-<section class="center">
-  <div class="container">
-    <p class="gold" style="letter-spacing:3px; text-transform:uppercase;">
-      Protocolo de Reprogramação Mental
-    </p>
-
-    <h1 style="font-size:58px; max-width:900px; margin:auto;">
-      Reprograme sua mente para entrar em
-      <span class="gold">estado Alfa</span>
-      e assumir o controle da sua vida.
-    </h1>
-
-    <p style="font-size:22px; color:#ccc; max-width:780px; margin:30px auto;">
-      Elimine autossabotagem, ansiedade e procrastinação
-      para desenvolver foco, disciplina e estabilidade emocional
-      sem depender de motivação.
-    </p>
-
-    <a href="#oferta" class="cta">
-      QUERO ATIVAR MINHA MENTE ALFA
-    </a>
-
-    <p style="margin-top:20px; color:#777;">
-      Acesso imediato • Garantia de 7 dias • Compra segura
-    </p>
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <span class="badge">PROTOCOLO MENTE ALFA</span>
+      <h1>Transforme sua <span class="gold">mente em sua maior aliada</span> — e não no seu maior sabotador.</h1>
+      <p class="sub">Um método prático para eliminar procrastinação, recuperar foco e instalar uma disciplina mental que continua funcionando mesmo nos dias em que sua motivação desaparece.</p>
+      <a href="SEU_LINK_CHECKOUT" class="btn">QUERO ATIVAR MINHA MENTE AGORA</a>
+      <div class="mini-benefits">
+        <div>✔ Elimine autossabotagem na raiz</div>
+        <div>✔ Controle emocional mais estável</div>
+        <div>✔ Foco sem depender de motivação</div>
+        <div>✔ Acesso imediato após a compra</div>
+      </div>
+    </div>
+    <div>
+      <img src="SUA_IMAGEM_PRODUTO.png" alt="Mente Alfa" />
+    </div>
   </div>
 </section>
 
-<!-- BENEFÍCIOS -->
 <section>
   <div class="container center">
-    <h2>O que muda quando sua mente trabalha a seu favor</h2>
-
-    <div class="card-grid">
-      <div class="card">
-        <h3 class="gold">Clareza Mental</h3>
-        <p>Menos ruído interno e mais direção.</p>
-      </div>
-
-      <div class="card">
-        <h3 class="gold">Disciplina Natural</h3>
-        <p>Agir sem depender de motivação.</p>
-      </div>
-
-      <div class="card">
-        <h3 class="gold">Controle Emocional</h3>
-        <p>Estabilidade mesmo sob pressão.</p>
-      </div>
-
-      <div class="card">
-        <h3 class="gold">Nova Identidade</h3>
-        <p>Você começa a confiar em si novamente.</p>
-      </div>
+    <h2>O que muda quando você instala o <span class="gold">Mecanismo Mente Alfa</span></h2>
+    <br/>
+    <div class="grid-4">
+      <div class="card"><h3>Clareza Mental</h3><p>Reduza o ruído interno e volte a pensar com direção.</p></div>
+      <div class="card"><h3>Disciplina Natural</h3><p>Execute o que precisa sem lutar contra si mesmo.</p></div>
+      <div class="card"><h3>Energia Interna</h3><p>Mais presença para agir com consistência.</p></div>
+      <div class="card"><h3>Autoimagem Forte</h3><p>Você volta a confiar em quem está se tornando.</p></div>
     </div>
   </div>
 </section>
 
-<!-- MECANISMO -->
-<section style="background:#090909;">
+<section class="mechanism">
   <div class="container center">
-    <h2>O mecanismo exclusivo da <span class="gold">Mente Alfa</span></h2>
-
-    <div class="card-grid">
-      <div class="card">
-        <h3 class="gold">1. Interrupção Neural</h3>
-        <p>Quebra os padrões automáticos que te sabotam.</p>
-      </div>
-
-      <div class="card">
-        <h3 class="gold">2. Reprogramação</h3>
-        <p>Substitui pensamentos destrutivos por clareza.</p>
-      </div>
-
-      <div class="card">
-        <h3 class="gold">3. Consolidação</h3>
-        <p>Instala uma nova identidade mental.</p>
-      </div>
+    <h2>Por que a maioria falha?</h2>
+    <p class="sub" style="margin:20px auto">Porque tenta mudar comportamento sem reprogramar o padrão mental que cria o comportamento.</p>
+    <div class="grid-4">
+      <div class="card"><h3>1. Interrupção</h3><p>Quebra o padrão automático de fuga mental.</p></div>
+      <div class="card"><h3>2. Reprogramação</h3><p>Substitui pensamentos sabotadores por comando interno.</p></div>
+      <div class="card"><h3>3. Consolidação</h3><p>Transforma repetição em identidade.</p></div>
+      <div class="card"><h3>4. Expansão</h3><p>Leva essa nova mente para todas as áreas da vida.</p></div>
     </div>
   </div>
 </section>
 
-<!-- OFERTA -->
-<section id="oferta">
-  <div class="container center">
-    <div class="price-box">
-      <h2>Hoje você recebe acesso completo a:</h2>
-
-      <p>Mente Alfa → <span class="old">R$197</span></p>
-      <p>Protocolo Anti-Procrastinação → <span class="old">R$67</span></p>
-      <p>Áudios Alfa → <span class="old">R$47</span></p>
-      <p>Mini treinamento emocional → <span class="old">R$97</span></p>
-      <p>Grupo exclusivo → <span class="old">R$97</span></p>
-
-      <p style="margin-top:30px;">
-        Valor total: <span class="old">R$405</span>
-      </p>
-
-      <p style="margin:0;">Hoje por apenas</p>
-      <div class="price">R$47</div>
-
-      <p style="color:#aaa;">
-        Menos que um jantar, mas com impacto para a vida inteira.
-      </p>
-
-      <a href="#" class="cta">
-        QUERO COMEÇAR AGORA
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- GARANTIA -->
-<section style="background:#090909;">
-  <div class="container center">
-    <h2>Garantia Premium</h2>
-
-    <p style="max-width:750px; margin:auto;">
-      Teste a <span class="gold">Mente Alfa</span> por 7 dias.
-      Se sentir que não recebeu valor real,
-      devolvemos 100% do seu investimento.
-    </p>
-
-    <p class="gold" style="margin-top:20px;">
-      Você assume risco zero.
-    </p>
-  </div>
-</section>
-
-<!-- FAQ -->
 <section>
-  <div class="container faq">
-    <h2 class="center">Perguntas Frequentes</h2>
-
-    <details>
-      <summary>Isso é motivação?</summary>
-      <p>Não. É reprogramação mental prática.</p>
-    </details>
-
-    <details>
-      <summary>Quanto tempo por dia?</summary>
-      <p>10 a 15 minutos por dia.</p>
-    </details>
-
-    <details>
-      <summary>Recebo acesso quando?</summary>
-      <p>Imediatamente após a confirmação.</p>
-    </details>
+  <div class="container">
+    <div class="offer-box">
+      <h2>Hoje você recebe tudo isso por um valor simbólico</h2>
+      <ul>
+        <li>Mente Alfa Completo — R$197</li>
+        <li>Protocolo Anti-Procrastinação — R$67</li>
+        <li>Áudios de Reprogramação Mental — R$47</li>
+        <li>Mini Treinamento Controle Emocional — R$97</li>
+        <li>Bônus Identidade Alfa — R$57</li>
+      </ul>
+      <p class="price-old">De R$465</p>
+      <p>Hoje por apenas</p>
+      <div class="price-new">R$47</div>
+      <p style="color:#999;margin:14px 0 26px">menos que o valor de uma refeição comum</p>
+      <a href="SEU_LINK_CHECKOUT" class="btn">QUERO MINHA TRANSFORMAÇÃO</a>
+    </div>
   </div>
 </section>
 
-<!-- CTA FINAL -->
+<section class="mechanism">
+  <div class="container center">
+    <h2>Garantia Premium de 7 Dias</h2>
+    <p class="sub" style="margin:20px auto">Entre, teste o conteúdo e aplique. Se sentir que não é para você, devolvemos 100% do seu investimento. Você assume zero risco.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container center">
+    <h2>Perguntas Frequentes</h2>
+    <br/>
+    <div class="faq-wrap">
+      <details class="faq-item"><summary>É só mais um curso motivacional?</summary><p>Não. O foco é reprogramação mental aplicada para mudança real.</p></details>
+      <details class="faq-item"><summary>Quanto tempo preciso por dia?</summary><p>Entre 10 e 15 minutos por dia já são suficientes.</p></details>
+      <details class="faq-item"><summary>Quando recebo acesso?</summary><p>Imediatamente após a confirmação do pagamento.</p></details>
+      <details class="faq-item"><summary>Funciona para quem já tentou de tudo?</summary><p>Sim, porque atua no padrão interno e não apenas na superfície.</p></details>
+    </div>
+  </div>
+</section>
+
 <section class="center">
   <div class="container">
-    <h2>
-      Sua mente pode continuar te limitando...
-      <br>
-      ou começar a trabalhar para você.
-    </h2>
-
-    <a href="#" class="cta">
-      QUERO ATIVAR MINHA MENTE ALFA
-    </a>
+    <h2>Sua mente pode continuar te limitando<br>ou começar a trabalhar a seu favor.</h2>
+    <br/>
+    <a href="SEU_LINK_CHECKOUT" class="btn">QUERO COMEÇAR AGORA</a>
   </div>
 </section>
+
+<footer>Mente Alfa © 2026 — Todos os direitos reservados.</footer>
 
 </body>
 </html>
