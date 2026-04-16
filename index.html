@@ -3,388 +3,53 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mente Alfa</title>
-
+<title>Mente Alfa Premium</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-}
-
-body{
-background:#050505;
-color:#fff;
-overflow-x:hidden;
-}
-
-section{
-padding:90px 20px;
-position:relative;
-}
-
-.container{
-max-width:1200px;
-margin:auto;
-}
-
-.gold{
-color:#d4af37;
-}
-
-.glass{
-background:rgba(255,255,255,.03);
-backdrop-filter:blur(18px);
-border:1px solid rgba(212,175,55,.15);
-border-radius:24px;
-box-shadow:0 20px 60px rgba(0,0,0,.5);
-}
-
-.btn-primary{
-display:inline-block;
-padding:20px 42px;
-background:linear-gradient(135deg,#d4af37,#f1d37a);
-color:#000;
-font-weight:700;
-border-radius:60px;
-text-decoration:none;
-font-size:18px;
-box-shadow:0 0 30px rgba(212,175,55,.35);
-transition:.4s;
-}
-
-.btn-primary:hover{
-transform:translateY(-4px) scale(1.03);
-box-shadow:0 0 40px rgba(212,175,55,.6);
-}
-
-.hero{
-min-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-background:
-radial-gradient(circle at top center, rgba(212,175,55,.08), transparent 40%),
-linear-gradient(180deg,#000,#080808);
-}
-
-.hero h1{
-font-size:58px;
-font-weight:800;
-line-height:1.15;
-max-width:900px;
-margin:auto;
-}
-
-.hero p{
-font-size:21px;
-color:#ccc;
-max-width:760px;
-margin:25px auto 40px;
-line-height:1.7;
-}
-
-.hero img{
-width:300px;
-margin:35px auto;
-display:block;
-filter:drop-shadow(0 0 40px rgba(212,175,55,.25));
-animation:float 4s ease-in-out infinite;
-}
-
-@keyframes float{
-0%,100%{transform:translateY(0);}
-50%{transform:translateY(-18px);}
-}
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:30px;
-margin-top:50px;
-}
-
-.card{
-padding:35px;
-transition:.4s;
-}
-
-.card:hover{
-transform:translateY(-10px);
-box-shadow:0 25px 50px rgba(212,175,55,.15);
-}
-
-.card h3{
-color:#d4af37;
-margin-bottom:15px;
-font-size:22px;
-}
-
-.card p{
-color:#ccc;
-line-height:1.7;
-}
-
-.offer-box{
-max-width:760px;
-margin:auto;
-text-align:center;
-padding:60px 30px;
-}
-
-.price-old{
-text-decoration:line-through;
-color:#777;
-font-size:24px;
-}
-
-.price-new{
-font-size:74px;
-font-weight:800;
-color:#d4af37;
-}
-
-.vagas{
-margin-top:18px;
-color:#d4af37;
-font-weight:600;
-font-size:16px;
-}
-
-#stickyBar{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-background:rgba(5,5,5,.94);
-backdrop-filter:blur(14px);
-padding:12px 20px;
-border-bottom:1px solid rgba(212,175,55,.2);
-z-index:9999;
-transform:translateY(-100%);
-transition:.4s;
-}
-
-#stickyBar.show{
-transform:translateY(0);
-}
-
-.sticky-content{
-max-width:1200px;
-margin:auto;
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
-
-.sticky-btn{
-padding:14px 26px;
-background:linear-gradient(135deg,#d4af37,#f1d37a);
-color:#000;
-border-radius:50px;
-text-decoration:none;
-font-weight:700;
-}
-
-.exit-popup{
-position:fixed;
-inset:0;
-display:none;
-align-items:center;
-justify-content:center;
-z-index:99999;
-}
-
-.exit-popup.active{
-display:flex;
-}
-
-.exit-overlay{
-position:absolute;
-inset:0;
-background:rgba(0,0,0,.85);
-backdrop-filter:blur(8px);
-}
-
-.exit-box{
-position:relative;
-z-index:2;
-max-width:560px;
-width:90%;
-padding:50px;
-text-align:center;
-}
-
-.close-popup{
-position:absolute;
-top:15px;
-right:20px;
-background:none;
-border:none;
-font-size:34px;
-color:#d4af37;
-cursor:pointer;
-}
-
-footer{
-padding:40px;
-text-align:center;
-color:#666;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;scroll-behavior:smooth}
+html,body{width:100%;overflow-x:hidden;background:#030303;color:#fff}
+body{background:radial-gradient(circle at top,rgba(212,175,55,.08),transparent 35%),linear-gradient(180deg,#000,#070707 40%,#020202)}
+section{width:100%;padding:110px 4vw;position:relative}
+.container{width:100%;max-width:1400px;margin:0 auto}
+.gold{color:#d4af37}.muted{color:#bdbdbd}
+.glass{background:rgba(255,255,255,.025);backdrop-filter:blur(20px);border:1px solid rgba(212,175,55,.14);border-radius:28px;box-shadow:0 30px 80px rgba(0,0,0,.45)}
+.btn-primary{display:inline-block;padding:20px 42px;border-radius:60px;background:linear-gradient(135deg,#c99a1f,#f0d27a);color:#000;text-decoration:none;font-weight:700;letter-spacing:.5px;box-shadow:0 0 35px rgba(212,175,55,.25);transition:.35s}
+.btn-primary:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 0 55px rgba(212,175,55,.4)}
+#stickyBar{position:fixed;top:0;left:0;width:100%;z-index:999;background:rgba(0,0,0,.88);backdrop-filter:blur(18px);border-bottom:1px solid rgba(212,175,55,.18);padding:14px 4vw;transform:translateY(-120%);transition:.4s}
+#stickyBar.show{transform:translateY(0)}
+.sticky-content{max-width:1400px;margin:auto;display:flex;justify-content:space-between;align-items:center;gap:20px}
+.hero{min-height:100vh;display:flex;align-items:center;text-align:center}
+.hero h1{font-size:clamp(42px,6vw,78px);line-height:1.08;max-width:1000px;margin:auto}
+.hero p{font-size:clamp(18px,2vw,24px);max-width:860px;margin:28px auto 40px;line-height:1.8;color:#d0d0d0}
+.hero img{width:min(360px,80vw);margin:25px auto 35px;display:block;filter:drop-shadow(0 0 50px rgba(212,175,55,.25));animation:float 5s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-16px)}}
+.section-title{text-align:center;font-size:clamp(32px,4vw,52px);margin-bottom:20px}.section-sub{text-align:center;color:#aaa;max-width:760px;margin:0 auto 50px;line-height:1.8}
+.grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px}
+.card{padding:34px;transition:.35s}.card:hover{transform:translateY(-10px);border-color:rgba(212,175,55,.35)}
+.card h3{color:#d4af37;margin-bottom:14px;font-size:22px}.card p{color:#c2c2c2;line-height:1.8}
+.testimonial{overflow:hidden;position:relative}.testimonial img{width:100%;display:block;transition:.5s}.testimonial:hover img{transform:scale(1.07)}
+.testimonial:after{content:'▶ Depoimento real';position:absolute;bottom:18px;left:18px;background:rgba(0,0,0,.7);padding:8px 14px;border-radius:30px;color:#fff;font-size:13px}
+.offer-box{text-align:center;padding:70px 30px;max-width:900px;margin:auto}.price-old{font-size:26px;color:#7a7a7a;text-decoration:line-through}.price-new{font-size:clamp(60px,8vw,92px);font-weight:800;color:#d4af37}.urgency-note{color:#d4af37;margin-top:14px;font-weight:600}
+.badge{display:inline-block;padding:8px 16px;border:1px solid rgba(212,175,55,.25);border-radius:40px;color:#d4af37;margin-bottom:20px}
+.faq-item{padding:24px;margin-bottom:18px}.faq-item summary{cursor:pointer;color:#d4af37;font-weight:600;font-size:18px}.faq-item p{margin-top:14px;color:#bbb;line-height:1.8}
+.guarantee{display:grid;grid-template-columns:220px 1fr;gap:30px;align-items:center;padding:40px}
+.guarantee img{width:180px;margin:auto}
+footer{text-align:center;padding:40px;color:#666}
+@media(max-width:768px){.sticky-content,.guarantee{grid-template-columns:1fr;display:grid;text-align:center}.sticky-content{display:flex;flex-direction:column}.btn-primary{width:100%}}
 </style>
 </head>
 <body>
-
-<div id="stickyBar">
-<div class="sticky-content">
-<div>
-Oferta reservada para você por:
-<strong class="gold" id="countdown">15:00</strong>
-</div>
-<a href="#oferta" class="sticky-btn">GARANTIR ACESSO</a>
-</div>
-</div>
-
-<section class="hero">
-<div class="container">
-<h1>Desbloqueie sua <span class="gold">Mentalidade Alfa</span> e assuma o controle da sua vida</h1>
-<p>A Mente Alfa foi criada para quem quer desenvolver foco, disciplina e domínio emocional para evoluir em qualquer área.</p>
-<img src="coroa.png" alt="Mente Alfa">
-<a href="#oferta" class="btn-primary">QUERO ACESSAR AGORA</a>
-</div>
-</section>
-
-<section>
-<div class="container">
-<h2 style="text-align:center;font-size:42px;">Por que a maioria nunca muda</h2>
-<div class="grid">
-<div class="glass card">
-<h3>Falta de clareza</h3>
-<p>Você quer evoluir, mas não sabe qual caminho seguir.</p>
-</div>
-<div class="glass card">
-<h3>Autossabotagem</h3>
-<p>Padrões mentais te mantêm preso no mesmo ciclo.</p>
-</div>
-<div class="glass card">
-<h3>Disciplina fraca</h3>
-<p>Você começa forte, mas perde consistência.</p>
-</div>
-</div>
-</div>
-</section>
-
-<section id="oferta">
-<div class="container">
-<div class="glass offer-box">
-<p class="price-old">De R$197</p>
-<p class="price-new">R$47</p>
-<p style="color:#bbb;margin:18px 0;">Pagamento único • acesso imediato • garantia de 7 dias</p>
-<p class="vagas">
-⚠ Restam apenas <span id="vagasRestantes">17</span> acessos promocionais hoje
-</p>
-<br>
-<a href="#" class="btn-primary">QUERO MINHA TRANSFORMAÇÃO</a>
-</div>
-</div>
-</section>
-
-<footer>
-Mente Alfa © 2026 — Todos os direitos reservados.
-</footer>
-
-<div id="exitPopup" class="exit-popup">
-<div class="exit-overlay"></div>
-<div class="exit-box glass">
-<button class="close-popup" onclick="closeExitPopup()">×</button>
-<h2>Espere... sua <span class="gold">oferta exclusiva</span> ainda está ativa</h2>
-<p>Antes de sair, você ainda pode garantir seu acesso por apenas R$47.</p>
-<a href="#oferta" class="btn-primary" onclick="closeExitPopup()">QUERO APROVEITAR</a>
-</div>
-</div>
-
+<div id="stickyBar"><div class="sticky-content"><div>Oferta protegida por <span class="gold">mais</span> <strong id="countdown">15:00</strong> para você</div><a href="#oferta" class="btn-primary">GARANTIR ACESSO</a></div></div>
+<section class="hero"><div class="container"><span class="badge">Programa Premium de Reprogramação Mental</span><h1>Desbloqueie a <span class="gold">Mentalidade de Alta Performance</span> e assuma o controle total da sua vida</h1><p>Um treinamento criado para desenvolver foco absoluto, disciplina emocional e clareza mental para quem decidiu sair da estagnação e construir uma nova identidade.</p><img src="coroa.png" alt="Mente Alfa"><a href="#oferta" class="btn-primary">QUERO ACESSAR AGORA</a></div></section>
+<section><div class="container"><h2 class="section-title">Por que a maioria nunca consegue mudar</h2><p class="section-sub">A maioria tenta mudar comportamento sem mudar a estrutura mental que gera os mesmos resultados repetidamente.</p><div class="grid-3"><div class="glass card"><h3>Falta de clareza</h3><p>Sem direção clara, qualquer esforço vira dispersão e você continua ocupado sem realmente evoluir.</p></div><div class="glass card"><h3>Autossabotagem invisível</h3><p>Padrões emocionais antigos continuam sabotando decisões mesmo quando você quer avançar.</p></div><div class="glass card"><h3>Disciplina instável</h3><p>Você começa motivado, mas volta ao padrão anterior por não sustentar consistência interna.</p></div></div></div></section>
+<section><div class="container"><h2 class="section-title">Provas reais de transformação</h2><p class="section-sub">Resultados de alunos que aplicaram o método e sentiram mudança prática.</p><div class="grid-3"><div class="glass testimonial"><img src="depo1.jpg" alt="Depoimento 1"></div><div class="glass testimonial"><img src="depo2.jpg" alt="Depoimento 2"></div><div class="glass testimonial"><img src="depo3.jpg" alt="Depoimento 3"></div></div></div></section>
+<section><div class="container"><h2 class="section-title">O que você vai desbloquear</h2><div class="grid-3"><div class="glass card"><h3>Foco profundo</h3><p>Capacidade de sustentar atenção sem se perder em distrações.</p></div><div class="glass card"><h3>Controle emocional</h3><p>Reduza ansiedade e pare de reagir impulsivamente aos seus gatilhos.</p></div><div class="glass card"><h3>Nova identidade</h3><p>Construa uma mentalidade compatível com o próximo nível da sua vida.</p></div></div></div></section>
+<section id="oferta"><div class="container"><div class="glass offer-box"><span class="badge">Condição especial de hoje</span><p class="price-old">De R$197</p><p class="price-new">R$47</p><p class="muted">Pagamento único • acesso imediato • suporte exclusivo</p><p class="urgency-note">Apenas <span id="spotsLeft">27</span> acessos promocionais restantes</p><br><a href="#" class="btn-primary">QUERO MINHA TRANSFORMAÇÃO</a></div></div></section>
+<section><div class="container"><h2 class="section-title">Garantia Premium de 7 dias</h2><div class="glass guarantee"><img src="garantia.png" alt="Garantia"><div><p style="font-size:22px;line-height:1.8;color:#ddd">Você entra hoje, testa a experiência completa e, se não perceber valor real, devolvemos 100% do seu investimento dentro de 7 dias.</p></div></div></div></section>
+<section><div class="container"><h2 class="section-title">Perguntas Frequentes</h2><details class="glass faq-item"><summary>Como recebo o acesso?</summary><p>O acesso chega automaticamente no seu e-mail após a confirmação.</p></details><details class="glass faq-item"><summary>Por quanto tempo tenho acesso?</summary><p>O acesso é vitalício com futuras atualizações incluídas.</p></details><details class="glass faq-item"><summary>Serve para iniciantes?</summary><p>Sim. O conteúdo foi estruturado para qualquer nível.</p></details></div></section>
+<footer>Mente Alfa © 2026 — Todos os direitos reservados.</footer>
 <script>
-document.addEventListener("DOMContentLoaded", function(){
-
-const TIMER_KEY = "menteAlfaCountdown";
-const VAGAS_KEY = "menteAlfaVagas";
-const DURATION = 15 * 60 * 1000;
-
-const countdown = document.getElementById("countdown");
-const stickyBar = document.getElementById("stickyBar");
-const vagasEl = document.getElementById("vagasRestantes");
-
-let endTime = localStorage.getItem(TIMER_KEY);
-let vagas = localStorage.getItem(VAGAS_KEY);
-
-if(!endTime){
-endTime = new Date().getTime() + DURATION;
-localStorage.setItem(TIMER_KEY,endTime);
-}
-
-if(!vagas){
-vagas = 17;
-localStorage.setItem(VAGAS_KEY,vagas);
-}
-
-window.addEventListener("scroll",()=>{
-if(window.scrollY > 300){
-stickyBar.classList.add("show");
-}else{
-stickyBar.classList.remove("show");
-}
-});
-
-function updateCountdown(){
-const now = new Date().getTime();
-const distance = endTime - now;
-
-if(distance <= 0){
-countdown.innerHTML = "ENCERRANDO";
-return;
-}
-
-const minutes = Math.floor((distance%(1000*60*60))/(1000*60));
-const seconds = Math.floor((distance%(1000*60))/1000);
-
-countdown.innerHTML =
-`${String(minutes).padStart(2,'0')}:${String(seconds).padStart(2,'0')}`;
-}
-
-function updateVagas(){
-let current = parseInt(localStorage.getItem(VAGAS_KEY));
-if(current > 3 && Math.random() > 0.7){
-current--;
-localStorage.setItem(VAGAS_KEY,current);
-}
-vagasEl.innerText = current;
-}
-
-updateCountdown();
-updateVagas();
-
-setInterval(updateCountdown,1000);
-setInterval(updateVagas,25000);
-
-let exitShown = false;
-
-document.addEventListener("mouseout", function(e){
-if(!exitShown && e.clientY < 10){
-document.getElementById("exitPopup").classList.add("active");
-exitShown = true;
-}
-});
-
-});
-
-function closeExitPopup(){
-document.getElementById("exitPopup").classList.remove("active");
-}
+document.addEventListener('DOMContentLoaded',()=>{const bar=document.getElementById('stickyBar');const countdown=document.getElementById('countdown');const spots=document.getElementById('spotsLeft');const key='menteAlfaTimer';const spotsKey='menteAlfaSpots';const duration=15*60*1000;let end=localStorage.getItem(key);if(!end){end=Date.now()+duration;localStorage.setItem(key,end)}let remaining=parseInt(localStorage.getItem(spotsKey)||27);window.addEventListener('scroll',()=>{window.scrollY>280?bar.classList.add('show'):bar.classList.remove('show')});function timer(){const d=end-Date.now();if(d<=0){countdown.textContent='ENCERRANDO';return;}const m=Math.floor(d/60000);const s=Math.floor((d%60000)/1000);countdown.textContent=`${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;}function reduceSpots(){if(remaining>11&&Math.random()>.55){remaining--;spots.textContent=remaining;localStorage.setItem(spotsKey,remaining)}}timer();setInterval(timer,1000);setInterval(reduceSpots,18000);});
 </script>
-
 </body>
 </html>
