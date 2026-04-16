@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mente Alfa</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
@@ -35,6 +34,14 @@ margin:auto;
 color:#d4af37;
 }
 
+.glass{
+background:rgba(255,255,255,.03);
+backdrop-filter:blur(18px);
+border:1px solid rgba(212,175,55,.15);
+border-radius:24px;
+box-shadow:0 20px 60px rgba(0,0,0,.5);
+}
+
 .btn-primary{
 display:inline-block;
 padding:20px 42px;
@@ -53,23 +60,15 @@ transform:translateY(-4px) scale(1.03);
 box-shadow:0 0 40px rgba(212,175,55,.6);
 }
 
-.glass{
-background:rgba(255,255,255,.03);
-backdrop-filter:blur(18px);
-border:1px solid rgba(212,175,55,.15);
-border-radius:24px;
-box-shadow:0 20px 60px rgba(0,0,0,.5);
-}
-
 .hero{
 min-height:100vh;
 display:flex;
 align-items:center;
 justify-content:center;
+text-align:center;
 background:
 radial-gradient(circle at top center, rgba(212,175,55,.08), transparent 40%),
 linear-gradient(180deg,#000,#080808);
-text-align:center;
 }
 
 .hero h1{
@@ -90,15 +89,15 @@ line-height:1.7;
 
 .hero img{
 width:320px;
-margin:50px auto;
 display:block;
+margin:40px auto;
 filter:drop-shadow(0 0 40px rgba(212,175,55,.25));
 animation:float 4s ease-in-out infinite;
 }
 
 @keyframes float{
-0%,100%{transform:translateY(0)}
-50%{transform:translateY(-18px)}
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-18px);}
 }
 
 .grid-3{
@@ -164,6 +163,18 @@ font-weight:800;
 margin:10px 0;
 }
 
+.urgency-note{
+margin-top:15px;
+color:#d4af37;
+font-weight:600;
+animation:pulseUrgency 2s infinite;
+}
+
+@keyframes pulseUrgency{
+0%,100%{opacity:.6;}
+50%{opacity:1;}
+}
+
 .faq-item{
 padding:24px;
 margin-bottom:18px;
@@ -182,33 +193,91 @@ color:#bbb;
 line-height:1.7;
 }
 
+#stickyBar{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+z-index:9999;
+background:rgba(5,5,5,.94);
+backdrop-filter:blur(14px);
+border-bottom:1px solid rgba(212,175,55,.2);
+padding:12px 20px;
+transform:translateY(-100%);
+transition:.4s;
+}
+
+#stickyBar.show{
+transform:translateY(0);
+}
+
+.sticky-content{
+max-width:1200px;
+margin:auto;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.sticky-text{
+font-size:16px;
+color:#fff;
+}
+
+#countdown{
+color:#d4af37;
+font-size:20px;
+font-weight:700;
+}
+
+.sticky-btn{
+padding:14px 28px;
+border-radius:50px;
+background:linear-gradient(135deg,#d4af37,#f1d37a);
+color:#000;
+font-weight:700;
+text-decoration:none;
+}
+
 footer{
 padding:35px;
 text-align:center;
 color:#666;
 font-size:14px;
-border-top:1px solid rgba(255,255,255,.05);
 }
 </style>
 </head>
 <body>
 
+<div id="stickyBar">
+<div class="sticky-content">
+<span class="sticky-text">
+Oferta reservada para você por:
+<strong id="countdown">15:00</strong>
+</span>
+
+<a href="#oferta" class="sticky-btn">
+GARANTIR ACESSO
+</a>
+</div>
+</div>
+
 <section class="hero">
 <div class="container">
 <h1>
 Desbloqueie a <span class="gold">Mentalidade de Alta Performance</span>
-e assuma o controle da sua vida em poucos dias
+e assuma o controle da sua vida
 </h1>
 
 <p>
-A Mente Alfa foi criada para homens que cansaram de viver no automático
-e querem desenvolver foco, disciplina e domínio emocional para crescer em qualquer área.
+A Mente Alfa foi criada para quem quer desenvolver foco,
+disciplina e domínio emocional para evoluir em qualquer área.
 </p>
 
 <img src="coroa.png" alt="Mente Alfa">
 
 <a href="#oferta" class="btn-primary">
-QUERO ACESSAR A MENTE ALFA
+QUERO ACESSAR AGORA
 </a>
 </div>
 </section>
@@ -216,29 +285,23 @@ QUERO ACESSAR A MENTE ALFA
 <section>
 <div class="container">
 <h2 style="text-align:center;font-size:42px;">
-Por que a maioria <span class="gold">nunca consegue mudar</span>
+Por que a maioria nunca consegue mudar
 </h2>
 
 <div class="grid-3">
 <div class="glass card">
 <h3>Falta de clareza</h3>
-<p>
-Você sabe que precisa evoluir, mas não sabe exatamente por onde começar.
-</p>
+<p>Você sabe que precisa evoluir, mas não sabe por onde começar.</p>
 </div>
 
 <div class="glass card">
 <h3>Autossabotagem</h3>
-<p>
-Sua mente cria padrões invisíveis que te puxam para trás sem você perceber.
-</p>
+<p>Padrões mentais invisíveis te mantêm preso no mesmo ciclo.</p>
 </div>
 
 <div class="glass card">
 <h3>Disciplina instável</h3>
-<p>
-Você começa motivado, mas perde consistência poucos dias depois.
-</p>
+<p>Você começa forte, mas perde consistência rapidamente.</p>
 </div>
 </div>
 </div>
@@ -247,44 +310,13 @@ Você começa motivado, mas perde consistência poucos dias depois.
 <section>
 <div class="container">
 <h2 style="text-align:center;font-size:42px;">
-O que você recebe dentro da <span class="gold">Mente Alfa</span>
+Resultados reais
 </h2>
 
 <div class="grid-3">
-<div class="glass card">
-<h3>Treinamento Completo</h3>
-<p>Método estruturado para reprogramação mental profunda.</p>
-</div>
-
-<div class="glass card">
-<h3>Áudios Guiados</h3>
-<p>Para fortalecer foco e domínio emocional diariamente.</p>
-</div>
-
-<div class="glass card">
-<h3>Bônus Exclusivos</h3>
-<p>Materiais extras para acelerar sua transformação.</p>
-</div>
-</div>
-</div>
-</section>
-
-<section>
-<div class="container">
-<h2 style="text-align:center;font-size:42px;">
-Resultados reais de quem entrou
-</h2>
-
-<div class="grid-3">
-<div class="testimonial glass">
-<img src="depo1.jpg">
-</div>
-<div class="testimonial glass">
-<img src="depo2.jpg">
-</div>
-<div class="testimonial glass">
-<img src="depo3.jpg">
-</div>
+<div class="testimonial glass"><img src="depo1.jpg"></div>
+<div class="testimonial glass"><img src="depo2.jpg"></div>
+<div class="testimonial glass"><img src="depo3.jpg"></div>
 </div>
 </div>
 </section>
@@ -294,12 +326,19 @@ Resultados reais de quem entrou
 <div class="glass offer-box">
 <p class="price-old">De R$197</p>
 <p class="price-new">R$47</p>
-<p style="color:#bbb;margin-bottom:30px;">
+
+<p style="color:#bbb;">
 Pagamento único • acesso imediato • garantia de 7 dias
 </p>
 
+<p class="urgency-note">
+⚠ Restam poucas vagas promocionais hoje
+</p>
+
+<br><br>
+
 <a href="#" class="btn-primary">
-QUERO COMEÇAR AGORA
+QUERO MINHA TRANSFORMAÇÃO
 </a>
 </div>
 </div>
@@ -308,13 +347,13 @@ QUERO COMEÇAR AGORA
 <section>
 <div class="container">
 <h2 style="text-align:center;font-size:42px;">
-Garantia <span class="gold">Blindada</span>
+Garantia Premium
 </h2>
 
 <div class="glass card" style="max-width:800px;margin:40px auto;text-align:center;">
 <p style="font-size:20px;color:#ccc;">
-Você tem 7 dias completos para testar.
-Se sentir que a Mente Alfa não é para você,
+Teste por 7 dias.
+Se não sentir valor real,
 devolvemos 100% do seu investimento.
 </p>
 </div>
@@ -329,40 +368,70 @@ Perguntas Frequentes
 
 <details class="glass faq-item">
 <summary>Como recebo o acesso?</summary>
-<p>O acesso é enviado imediatamente para seu e-mail após a confirmação.</p>
+<p>Você recebe automaticamente no e-mail após a compra.</p>
 </details>
 
 <details class="glass faq-item">
 <summary>Por quanto tempo tenho acesso?</summary>
-<p>O acesso é vitalício, incluindo futuras atualizações.</p>
+<p>O acesso é vitalício.</p>
 </details>
 
 <details class="glass faq-item">
 <summary>Funciona para iniciantes?</summary>
-<p>Sim. O método foi pensado para qualquer nível.</p>
+<p>Sim, foi criado para qualquer nível.</p>
 </details>
-</div>
-</section>
-
-<section style="text-align:center;">
-<div class="container">
-<h2 style="font-size:46px;margin-bottom:25px;">
-Sua mente pode continuar te limitando...
-</h2>
-
-<p style="font-size:20px;color:#ccc;margin-bottom:40px;">
-ou você pode decidir transformá-la hoje.
-</p>
-
-<a href="#oferta" class="btn-primary">
-QUERO MINHA TRANSFORMAÇÃO
-</a>
 </div>
 </section>
 
 <footer>
 Mente Alfa © 2026 — Todos os direitos reservados.
 </footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+
+const countdown = document.getElementById("countdown");
+const stickyBar = document.getElementById("stickyBar");
+
+const TIMER_KEY = "menteAlfaCountdown";
+const TIMER_DURATION = 15 * 60 * 1000;
+
+let endTime = localStorage.getItem(TIMER_KEY);
+
+if(!endTime){
+endTime = new Date().getTime() + TIMER_DURATION;
+localStorage.setItem(TIMER_KEY, endTime);
+}
+
+window.addEventListener("scroll", function(){
+if(window.scrollY > 300){
+stickyBar.classList.add("show");
+}else{
+stickyBar.classList.remove("show");
+}
+});
+
+function updateCountdown(){
+const now = new Date().getTime();
+const distance = endTime - now;
+
+if(distance <= 0){
+countdown.innerHTML = "ENCERRANDO";
+return;
+}
+
+const minutes = Math.floor((distance % (1000*60*60))/(1000*60));
+const seconds = Math.floor((distance % (1000*60))/1000);
+
+countdown.innerHTML =
+`${String(minutes).padStart(2,'0')}:${String(seconds).padStart(2,'0')}`;
+}
+
+updateCountdown();
+setInterval(updateCountdown,1000);
+
+});
+</script>
 
 </body>
 </html>
