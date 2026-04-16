@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mente Alfa</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
@@ -82,15 +83,15 @@ margin:auto;
 .hero p{
 font-size:21px;
 color:#ccc;
-max-width:780px;
+max-width:760px;
 margin:25px auto 40px;
 line-height:1.7;
 }
 
 .hero img{
-width:320px;
+width:300px;
+margin:35px auto;
 display:block;
-margin:40px auto;
 filter:drop-shadow(0 0 40px rgba(212,175,55,.25));
 animation:float 4s ease-in-out infinite;
 }
@@ -100,7 +101,7 @@ animation:float 4s ease-in-out infinite;
 50%{transform:translateY(-18px);}
 }
 
-.grid-3{
+.grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 gap:30px;
@@ -118,9 +119,9 @@ box-shadow:0 25px 50px rgba(212,175,55,.15);
 }
 
 .card h3{
-font-size:22px;
-margin-bottom:15px;
 color:#d4af37;
+margin-bottom:15px;
+font-size:22px;
 }
 
 .card p{
@@ -128,69 +129,30 @@ color:#ccc;
 line-height:1.7;
 }
 
-.testimonial{
-overflow:hidden;
-border-radius:24px;
-}
-
-.testimonial img{
-width:100%;
-display:block;
-transition:.5s;
-}
-
-.testimonial:hover img{
-transform:scale(1.06);
-}
-
 .offer-box{
+max-width:760px;
+margin:auto;
 text-align:center;
 padding:60px 30px;
-max-width:750px;
-margin:auto;
 }
 
 .price-old{
 text-decoration:line-through;
-color:#888;
+color:#777;
 font-size:24px;
 }
 
 .price-new{
-font-size:72px;
-color:#d4af37;
+font-size:74px;
 font-weight:800;
-margin:10px 0;
-}
-
-.urgency-note{
-margin-top:15px;
-color:#d4af37;
-font-weight:600;
-animation:pulseUrgency 2s infinite;
-}
-
-@keyframes pulseUrgency{
-0%,100%{opacity:.6;}
-50%{opacity:1;}
-}
-
-.faq-item{
-padding:24px;
-margin-bottom:18px;
-cursor:pointer;
-}
-
-.faq-item summary{
-font-size:18px;
-font-weight:600;
 color:#d4af37;
 }
 
-.faq-item p{
-margin-top:14px;
-color:#bbb;
-line-height:1.7;
+.vagas{
+margin-top:18px;
+color:#d4af37;
+font-weight:600;
+font-size:16px;
 }
 
 #stickyBar{
@@ -198,11 +160,11 @@ position:fixed;
 top:0;
 left:0;
 width:100%;
-z-index:9999;
 background:rgba(5,5,5,.94);
 backdrop-filter:blur(14px);
-border-bottom:1px solid rgba(212,175,55,.2);
 padding:12px 20px;
+border-bottom:1px solid rgba(212,175,55,.2);
+z-index:9999;
 transform:translateY(-100%);
 transition:.4s;
 }
@@ -219,31 +181,59 @@ justify-content:space-between;
 align-items:center;
 }
 
-.sticky-text{
-font-size:16px;
-color:#fff;
-}
-
-#countdown{
-color:#d4af37;
-font-size:20px;
-font-weight:700;
-}
-
 .sticky-btn{
-padding:14px 28px;
-border-radius:50px;
+padding:14px 26px;
 background:linear-gradient(135deg,#d4af37,#f1d37a);
 color:#000;
-font-weight:700;
+border-radius:50px;
 text-decoration:none;
+font-weight:700;
+}
+
+.exit-popup{
+position:fixed;
+inset:0;
+display:none;
+align-items:center;
+justify-content:center;
+z-index:99999;
+}
+
+.exit-popup.active{
+display:flex;
+}
+
+.exit-overlay{
+position:absolute;
+inset:0;
+background:rgba(0,0,0,.85);
+backdrop-filter:blur(8px);
+}
+
+.exit-box{
+position:relative;
+z-index:2;
+max-width:560px;
+width:90%;
+padding:50px;
+text-align:center;
+}
+
+.close-popup{
+position:absolute;
+top:15px;
+right:20px;
+background:none;
+border:none;
+font-size:34px;
+color:#d4af37;
+cursor:pointer;
 }
 
 footer{
-padding:35px;
+padding:40px;
 text-align:center;
 color:#666;
-font-size:14px;
 }
 </style>
 </head>
@@ -251,72 +241,39 @@ font-size:14px;
 
 <div id="stickyBar">
 <div class="sticky-content">
-<span class="sticky-text">
+<div>
 Oferta reservada para você por:
-<strong id="countdown">15:00</strong>
-</span>
-
-<a href="#oferta" class="sticky-btn">
-GARANTIR ACESSO
-</a>
+<strong class="gold" id="countdown">15:00</strong>
+</div>
+<a href="#oferta" class="sticky-btn">GARANTIR ACESSO</a>
 </div>
 </div>
 
 <section class="hero">
 <div class="container">
-<h1>
-Desbloqueie a <span class="gold">Mentalidade de Alta Performance</span>
-e assuma o controle da sua vida
-</h1>
-
-<p>
-A Mente Alfa foi criada para quem quer desenvolver foco,
-disciplina e domínio emocional para evoluir em qualquer área.
-</p>
-
+<h1>Desbloqueie sua <span class="gold">Mentalidade Alfa</span> e assuma o controle da sua vida</h1>
+<p>A Mente Alfa foi criada para quem quer desenvolver foco, disciplina e domínio emocional para evoluir em qualquer área.</p>
 <img src="coroa.png" alt="Mente Alfa">
-
-<a href="#oferta" class="btn-primary">
-QUERO ACESSAR AGORA
-</a>
+<a href="#oferta" class="btn-primary">QUERO ACESSAR AGORA</a>
 </div>
 </section>
 
 <section>
 <div class="container">
-<h2 style="text-align:center;font-size:42px;">
-Por que a maioria nunca consegue mudar
-</h2>
-
-<div class="grid-3">
+<h2 style="text-align:center;font-size:42px;">Por que a maioria nunca muda</h2>
+<div class="grid">
 <div class="glass card">
 <h3>Falta de clareza</h3>
-<p>Você sabe que precisa evoluir, mas não sabe por onde começar.</p>
+<p>Você quer evoluir, mas não sabe qual caminho seguir.</p>
 </div>
-
 <div class="glass card">
 <h3>Autossabotagem</h3>
-<p>Padrões mentais invisíveis te mantêm preso no mesmo ciclo.</p>
+<p>Padrões mentais te mantêm preso no mesmo ciclo.</p>
 </div>
-
 <div class="glass card">
-<h3>Disciplina instável</h3>
-<p>Você começa forte, mas perde consistência rapidamente.</p>
+<h3>Disciplina fraca</h3>
+<p>Você começa forte, mas perde consistência.</p>
 </div>
-</div>
-</div>
-</section>
-
-<section>
-<div class="container">
-<h2 style="text-align:center;font-size:42px;">
-Resultados reais
-</h2>
-
-<div class="grid-3">
-<div class="testimonial glass"><img src="depo1.jpg"></div>
-<div class="testimonial glass"><img src="depo2.jpg"></div>
-<div class="testimonial glass"><img src="depo3.jpg"></div>
 </div>
 </div>
 </section>
@@ -326,60 +283,13 @@ Resultados reais
 <div class="glass offer-box">
 <p class="price-old">De R$197</p>
 <p class="price-new">R$47</p>
-
-<p style="color:#bbb;">
-Pagamento único • acesso imediato • garantia de 7 dias
+<p style="color:#bbb;margin:18px 0;">Pagamento único • acesso imediato • garantia de 7 dias</p>
+<p class="vagas">
+⚠ Restam apenas <span id="vagasRestantes">17</span> acessos promocionais hoje
 </p>
-
-<p class="urgency-note">
-⚠ Restam poucas vagas promocionais hoje
-</p>
-
-<br><br>
-
-<a href="#" class="btn-primary">
-QUERO MINHA TRANSFORMAÇÃO
-</a>
+<br>
+<a href="#" class="btn-primary">QUERO MINHA TRANSFORMAÇÃO</a>
 </div>
-</div>
-</section>
-
-<section>
-<div class="container">
-<h2 style="text-align:center;font-size:42px;">
-Garantia Premium
-</h2>
-
-<div class="glass card" style="max-width:800px;margin:40px auto;text-align:center;">
-<p style="font-size:20px;color:#ccc;">
-Teste por 7 dias.
-Se não sentir valor real,
-devolvemos 100% do seu investimento.
-</p>
-</div>
-</div>
-</section>
-
-<section>
-<div class="container">
-<h2 style="text-align:center;font-size:42px;">
-Perguntas Frequentes
-</h2>
-
-<details class="glass faq-item">
-<summary>Como recebo o acesso?</summary>
-<p>Você recebe automaticamente no e-mail após a compra.</p>
-</details>
-
-<details class="glass faq-item">
-<summary>Por quanto tempo tenho acesso?</summary>
-<p>O acesso é vitalício.</p>
-</details>
-
-<details class="glass faq-item">
-<summary>Funciona para iniciantes?</summary>
-<p>Sim, foi criado para qualquer nível.</p>
-</details>
 </div>
 </section>
 
@@ -387,23 +297,41 @@ Perguntas Frequentes
 Mente Alfa © 2026 — Todos os direitos reservados.
 </footer>
 
+<div id="exitPopup" class="exit-popup">
+<div class="exit-overlay"></div>
+<div class="exit-box glass">
+<button class="close-popup" onclick="closeExitPopup()">×</button>
+<h2>Espere... sua <span class="gold">oferta exclusiva</span> ainda está ativa</h2>
+<p>Antes de sair, você ainda pode garantir seu acesso por apenas R$47.</p>
+<a href="#oferta" class="btn-primary" onclick="closeExitPopup()">QUERO APROVEITAR</a>
+</div>
+</div>
+
 <script>
 document.addEventListener("DOMContentLoaded", function(){
 
+const TIMER_KEY = "menteAlfaCountdown";
+const VAGAS_KEY = "menteAlfaVagas";
+const DURATION = 15 * 60 * 1000;
+
 const countdown = document.getElementById("countdown");
 const stickyBar = document.getElementById("stickyBar");
-
-const TIMER_KEY = "menteAlfaCountdown";
-const TIMER_DURATION = 15 * 60 * 1000;
+const vagasEl = document.getElementById("vagasRestantes");
 
 let endTime = localStorage.getItem(TIMER_KEY);
+let vagas = localStorage.getItem(VAGAS_KEY);
 
 if(!endTime){
-endTime = new Date().getTime() + TIMER_DURATION;
-localStorage.setItem(TIMER_KEY, endTime);
+endTime = new Date().getTime() + DURATION;
+localStorage.setItem(TIMER_KEY,endTime);
 }
 
-window.addEventListener("scroll", function(){
+if(!vagas){
+vagas = 17;
+localStorage.setItem(VAGAS_KEY,vagas);
+}
+
+window.addEventListener("scroll",()=>{
 if(window.scrollY > 300){
 stickyBar.classList.add("show");
 }else{
@@ -420,17 +348,42 @@ countdown.innerHTML = "ENCERRANDO";
 return;
 }
 
-const minutes = Math.floor((distance % (1000*60*60))/(1000*60));
-const seconds = Math.floor((distance % (1000*60))/1000);
+const minutes = Math.floor((distance%(1000*60*60))/(1000*60));
+const seconds = Math.floor((distance%(1000*60))/1000);
 
 countdown.innerHTML =
 `${String(minutes).padStart(2,'0')}:${String(seconds).padStart(2,'0')}`;
 }
 
+function updateVagas(){
+let current = parseInt(localStorage.getItem(VAGAS_KEY));
+if(current > 3 && Math.random() > 0.7){
+current--;
+localStorage.setItem(VAGAS_KEY,current);
+}
+vagasEl.innerText = current;
+}
+
 updateCountdown();
+updateVagas();
+
 setInterval(updateCountdown,1000);
+setInterval(updateVagas,25000);
+
+let exitShown = false;
+
+document.addEventListener("mouseout", function(e){
+if(!exitShown && e.clientY < 10){
+document.getElementById("exitPopup").classList.add("active");
+exitShown = true;
+}
+});
 
 });
+
+function closeExitPopup(){
+document.getElementById("exitPopup").classList.remove("active");
+}
 </script>
 
 </body>
