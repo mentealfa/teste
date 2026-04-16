@@ -1,196 +1,255 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>Código Alfa</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mente Alfa</title>
 
 <style>
-
-body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  background: #ffffff;
-  color: #111;
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:#080808;
+  color:#fff;
+  line-height:1.6;
 }
-
-.container {
-  max-width: 1100px;
-  margin: auto;
-  padding: 80px 20px;
+.container{
+  width:90%;
+  max-width:1100px;
+  margin:auto;
 }
-
-.flex {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 40px;
+section{
+  padding:80px 0;
 }
-
-.flex.reverse {
-  flex-direction: row-reverse;
+h1,h2,h3{
+  margin-bottom:20px;
 }
-
-.text {
-  flex: 1;
+.gold{
+  color:#d4af37;
 }
-
-.image {
-  flex: 1;
+.cta-button{
+  display:inline-block;
+  background:#d4af37;
+  color:#000;
+  padding:18px 40px;
+  border-radius:8px;
+  font-weight:bold;
+  text-decoration:none;
+  margin-top:25px;
+  transition:.3s;
 }
-
-.image img {
-  width: 100%;
-  border-radius: 12px;
+.cta-button:hover{
+  transform:scale(1.05);
 }
-
-h1 {
-  font-size: 48px;
-  font-weight: 700;
-  line-height: 1.2;
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:25px;
 }
-
-h2 {
-  font-size: 32px;
+.card{
+  background:#111;
+  padding:25px;
+  border-radius:12px;
+  border:1px solid rgba(212,175,55,.2);
 }
-
-p {
-  font-size: 18px;
-  color: #555;
-  line-height: 1.6;
+.price{
+  font-size:48px;
+  color:#d4af37;
+  font-weight:bold;
 }
-
-.btn {
-  background: #111;
-  color: #fff;
-  padding: 14px 28px;
-  text-decoration: none;
-  display: inline-block;
-  margin-top: 20px;
-  border-radius: 6px;
+.old-price{
+  text-decoration:line-through;
+  color:#777;
 }
-
-/* ANIMAÇÃO */
-
-.fade {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.8s ease;
+.center{
+  text-align:center;
 }
-
-.fade.show {
-  opacity: 1;
-  transform: translateY(0);
+details{
+  background:#111;
+  padding:20px;
+  margin-bottom:15px;
+  border-radius:8px;
 }
-
-.section {
-  margin-bottom: 100px;
-}
-
-.light {
-  background: #f5f5f5;
-}
-
-@media(max-width: 768px){
-  .flex {
-    flex-direction: column;
-  }
-}
-
 </style>
 </head>
-
 <body>
 
 <!-- HERO -->
+<section class="center">
+  <div class="container">
+    <h1>
+      Reprograme sua mente para entrar em <span class="gold">estado Alfa</span>
+      e finalmente assumir o controle da sua vida.
+    </h1>
 
-<div class="container flex section fade">
+    <p style="font-size:22px; max-width:850px; margin:auto;">
+      O método da <span class="gold">Mente Alfa</span> foi criado para eliminar
+      autossabotagem, ansiedade mental e procrastinação, para que você desenvolva
+      foco, clareza emocional e disciplina sem depender de motivação.
+    </p>
 
-<div class="text">
-<h1>Assuma o Controle da Sua Mente e Construa uma Versão Mais Forte</h1>
-<p>O Código Alfa é um método direto para desenvolver foco, disciplina e clareza mental.</p>
-<a href="#" class="btn">Começar agora</a>
-</div>
+    <a href="#oferta" class="cta-button">
+      QUERO ATIVAR MINHA MENTE ALFA AGORA
+    </a>
 
-<div class="image">
-<img src="https://images.unsplash.com/photo-1556157382-97eda2f9e2bf" alt="">
-</div>
+    <p style="margin-top:15px; color:#aaa;">
+      Acesso imediato • Garantia de 7 dias • Compra 100% segura
+    </p>
+  </div>
+</section>
 
-</div>
+<!-- BENEFÍCIOS -->
+<section>
+  <div class="container center">
+    <h2>O que acontece quando sua mente começa a trabalhar a seu favor</h2>
 
-<!-- BLOCO 1 -->
+    <div class="cards">
+      <div class="card">
+        <h3 class="gold">Clareza Mental</h3>
+        <p>Pare de viver com a mente acelerada e ganhe direção interna.</p>
+      </div>
 
-<div class="container flex reverse section fade">
+      <div class="card">
+        <h3 class="gold">Disciplina Natural</h3>
+        <p>Você age mesmo quando não está com vontade.</p>
+      </div>
 
-<div class="text">
-<h2>Você não está sem motivação</h2>
-<p>Você só nunca foi ensinado a controlar sua mente.</p>
-<p>Você foi condicionado a evitar esforço e buscar conforto.</p>
-</div>
+      <div class="card">
+        <h3 class="gold">Controle Emocional</h3>
+        <p>Aprenda a controlar sua mente em momentos de pressão.</p>
+      </div>
 
-<div class="image">
-<img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe" alt="">
-</div>
+      <div class="card">
+        <h3 class="gold">Autoimagem Forte</h3>
+        <p>Reconstrua a forma como você enxerga a si mesmo.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-</div>
+<!-- MECANISMO -->
+<section style="background:#111;">
+  <div class="container center">
+    <h2>O mecanismo exclusivo da <span class="gold">Mente Alfa</span></h2>
 
-<!-- BLOCO 2 -->
+    <p style="max-width:800px; margin:auto;">
+      A maioria tenta mudar o comportamento na força.
+      Mas o verdadeiro problema está no padrão interno que governa sua mente.
+    </p>
 
-<div class="container flex section fade light">
+    <p style="max-width:800px; margin:auto;">
+      A Mente Alfa trabalha em 3 etapas:
+    </p>
 
-<div class="text">
-<h2>O que é o Código Alfa</h2>
-<p>Um sistema direto que muda sua forma de pensar e agir.</p>
-<p>Sem motivação falsa. Apenas execução.</p>
-</div>
+    <div class="cards" style="margin-top:40px;">
+      <div class="card">
+        <h3 class="gold">1. Interrupção Neural</h3>
+        <p>Quebra padrões mentais automáticos que geram procrastinação.</p>
+      </div>
 
-<div class="image">
-<img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c" alt="">
-</div>
+      <div class="card">
+        <h3 class="gold">2. Reprogramação Mental</h3>
+        <p>Substitui sabotagem interna por foco e estabilidade.</p>
+      </div>
 
-</div>
+      <div class="card">
+        <h3 class="gold">3. Consolidação Alfa</h3>
+        <p>Instala uma nova identidade mental disciplinada.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-<!-- BLOCO 3 -->
+<!-- OFERTA -->
+<section id="oferta">
+  <div class="container center">
+    <h2>Hoje você recebe acesso completo a:</h2>
 
-<div class="container flex reverse section fade">
+    <div class="cards" style="margin-top:40px;">
+      <div class="card">Programa principal Mente Alfa — <span class="old-price">R$197</span></div>
+      <div class="card">Protocolo Anti-Procrastinação — <span class="old-price">R$67</span></div>
+      <div class="card">Áudios Alfa de Reprogramação — <span class="old-price">R$47</span></div>
+      <div class="card">Treinamento Controle Emocional — <span class="old-price">R$97</span></div>
+      <div class="card">Grupo Exclusivo — <span class="old-price">R$97</span></div>
+    </div>
 
-<div class="text">
-<h2>O que você desenvolve</h2>
-<p>Clareza mental. Foco. Disciplina. Controle emocional.</p>
-</div>
+    <p style="margin-top:40px;">Valor total: <span class="old-price">R$405</span></p>
 
-<div class="image">
-<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" alt="">
-</div>
+    <h3>Hoje por apenas</h3>
+    <div class="price">R$47</div>
 
-</div>
+    <p style="font-size:20px; color:#ccc;">
+      Menos do que você gastaria em um jantar comum.
+    </p>
 
-<!-- BLOCO FINAL -->
+    <a href="#" class="cta-button">
+      QUERO COMEÇAR MINHA TRANSFORMAÇÃO
+    </a>
+  </div>
+</section>
 
-<div class="container section fade" style="text-align:center;">
+<!-- GARANTIA -->
+<section style="background:#111;">
+  <div class="container center">
+    <h2>Garantia Premium Mente Alfa</h2>
 
-<h2>Comece agora</h2>
-<p>Você só precisa tomar uma decisão.</p>
+    <p style="max-width:750px; margin:auto;">
+      Você terá <span class="gold">7 dias completos</span> para testar.
+      Se sentir que o conteúdo não entregou valor real para sua vida,
+      devolvemos <strong>100% do seu dinheiro.</strong>
+    </p>
 
-<a href="#" class="btn">Quero acessar</a>
+    <p style="margin-top:20px;">
+      Você assume <span class="gold">zero risco.</span>
+    </p>
+  </div>
+</section>
 
-</div>
+<!-- FAQ -->
+<section>
+  <div class="container">
+    <h2 class="center">Perguntas Frequentes</h2>
 
-<!-- SCRIPT ANIMAÇÃO -->
+    <details>
+      <summary>Isso é só motivação?</summary>
+      <p>Não. A Mente Alfa trabalha reprogramação mental prática.</p>
+    </details>
 
-<script>
-const elements = document.querySelectorAll('.fade');
+    <details>
+      <summary>Quanto tempo por dia?</summary>
+      <p>De 10 a 15 minutos já são suficientes.</p>
+    </details>
 
-window.addEventListener('scroll', () => {
-  elements.forEach(el => {
-    const top = el.getBoundingClientRect().top;
-    if(top < window.innerHeight - 100){
-      el.classList.add('show');
-    }
-  });
-});
-</script>
+    <details>
+      <summary>Serve para iniciantes?</summary>
+      <p>Sim. O método foi feito para qualquer nível.</p>
+    </details>
+
+    <details>
+      <summary>Quando recebo acesso?</summary>
+      <p>Imediatamente após a confirmação do pagamento.</p>
+    </details>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="center" style="background:#000;">
+  <div class="container">
+    <h2>
+      Sua mente pode continuar te limitando...
+      <br>
+      ou começar a trabalhar a seu favor a partir de hoje.
+    </h2>
+
+    <a href="#" class="cta-button">
+      QUERO ATIVAR MINHA MENTE ALFA AGORA
+    </a>
+
+    <p style="margin-top:20px; color:#aaa;">
+      Comece hoje por apenas R$47
+    </p>
+  </div>
+</section>
 
 </body>
 </html>
