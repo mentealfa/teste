@@ -4,19 +4,25 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mente Alfa</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-body{
+*{
 margin:0;
+padding:0;
+box-sizing:border-box;
 font-family:'Poppins',sans-serif;
-background:#000;
+}
+
+body{
+background:#050505;
 color:#fff;
 overflow-x:hidden;
 }
 
 section{
-padding:100px 6%;
+padding:90px 20px;
 position:relative;
 }
 
@@ -25,271 +31,337 @@ max-width:1200px;
 margin:auto;
 }
 
-h1,h2,h3{
-margin:0 0 20px;
-}
-
 .gold{
 color:#d4af37;
 }
 
-.btn{
+.btn-primary{
 display:inline-block;
-background:linear-gradient(90deg,#d4af37,#b8860b);
+padding:20px 42px;
+background:linear-gradient(135deg,#d4af37,#f1d37a);
 color:#000;
-padding:20px 38px;
 font-weight:700;
-border-radius:14px;
+border-radius:60px;
 text-decoration:none;
-box-shadow:0 0 25px rgba(212,175,55,.35);
-transition:.3s;
+font-size:18px;
+box-shadow:0 0 30px rgba(212,175,55,.35);
+transition:.4s;
 }
 
-.btn:hover{
-transform:translateY(-4px);
-box-shadow:0 0 35px rgba(212,175,55,.5);
+.btn-primary:hover{
+transform:translateY(-4px) scale(1.03);
+box-shadow:0 0 40px rgba(212,175,55,.6);
+}
+
+.glass{
+background:rgba(255,255,255,.03);
+backdrop-filter:blur(18px);
+border:1px solid rgba(212,175,55,.15);
+border-radius:24px;
+box-shadow:0 20px 60px rgba(0,0,0,.5);
+}
+
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+background:
+radial-gradient(circle at top center, rgba(212,175,55,.08), transparent 40%),
+linear-gradient(180deg,#000,#080808);
+text-align:center;
+}
+
+.hero h1{
+font-size:58px;
+font-weight:800;
+line-height:1.15;
+max-width:900px;
+margin:auto;
+}
+
+.hero p{
+font-size:21px;
+color:#ccc;
+max-width:780px;
+margin:25px auto 40px;
+line-height:1.7;
+}
+
+.hero img{
+width:320px;
+margin:50px auto;
+display:block;
+filter:drop-shadow(0 0 40px rgba(212,175,55,.25));
+animation:float 4s ease-in-out infinite;
+}
+
+@keyframes float{
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(-18px)}
+}
+
+.grid-3{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+margin-top:50px;
 }
 
 .card{
-background:rgba(255,255,255,.03);
-border:1px solid rgba(212,175,55,.18);
-border-radius:20px;
-padding:30px;
-backdrop-filter:blur(12px);
+padding:35px;
 transition:.4s;
 }
 
 .card:hover{
-transform:translateY(-8px);
-box-shadow:0 0 35px rgba(212,175,55,.15);
+transform:translateY(-10px);
+box-shadow:0 25px 50px rgba(212,175,55,.15);
 }
 
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:25px;
+.card h3{
+font-size:22px;
+margin-bottom:15px;
+color:#d4af37;
 }
 
-.glow{
-position:absolute;
-width:800px;
-height:800px;
-background:radial-gradient(circle,rgba(212,175,55,.08),transparent 70%);
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-filter:blur(70px);
-pointer-events:none;
+.card p{
+color:#ccc;
+line-height:1.7;
+}
+
+.testimonial{
+overflow:hidden;
+border-radius:24px;
 }
 
 .testimonial img{
 width:100%;
-border-radius:20px;
-transition:.4s;
+display:block;
+transition:.5s;
 }
 
 .testimonial:hover img{
-transform:scale(1.04);
+transform:scale(1.06);
 }
 
-details{
-background:#111;
-padding:22px;
-border-radius:16px;
-margin-bottom:16px;
-border:1px solid rgba(212,175,55,.12);
+.offer-box{
+text-align:center;
+padding:60px 30px;
+max-width:750px;
+margin:auto;
 }
 
-summary{
+.price-old{
+text-decoration:line-through;
+color:#888;
+font-size:24px;
+}
+
+.price-new{
+font-size:72px;
+color:#d4af37;
+font-weight:800;
+margin:10px 0;
+}
+
+.faq-item{
+padding:24px;
+margin-bottom:18px;
 cursor:pointer;
+}
+
+.faq-item summary{
+font-size:18px;
 font-weight:600;
 color:#d4af37;
 }
 
-@media(max-width:768px){
-.hero{
-flex-direction:column;
-text-align:center;
+.faq-item p{
+margin-top:14px;
+color:#bbb;
+line-height:1.7;
 }
+
+footer{
+padding:35px;
+text-align:center;
+color:#666;
+font-size:14px;
+border-top:1px solid rgba(255,255,255,.05);
 }
 </style>
 </head>
 <body>
 
-<!-- HERO -->
-<section id="hero">
-<div class="glow"></div>
-<div class="container hero" style="display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;">
-<div style="flex:1;min-width:320px;">
-<span class="gold">PROTOCOLO DE REPROGRAMAÇÃO MENTAL</span>
-<h1 style="font-size:58px;line-height:1.1;">
-Sua mente pode continuar
-<span class="gold">sabotando sua vida...</span>
-ou começar a trabalhar
-<span class="gold">a seu favor.</span>
+<section class="hero">
+<div class="container">
+<h1>
+Desbloqueie a <span class="gold">Mentalidade de Alta Performance</span>
+e assuma o controle da sua vida em poucos dias
 </h1>
-<p style="font-size:20px;color:#ccc;line-height:1.8;">
-O método da Mente Alfa foi criado para pessoas que sabem que poderiam viver mais, produzir mais e conquistar mais — mas sentem que a própria mente virou o maior obstáculo.
+
+<p>
+A Mente Alfa foi criada para homens que cansaram de viver no automático
+e querem desenvolver foco, disciplina e domínio emocional para crescer em qualquer área.
 </p>
 
-<div class="grid" style="margin:35px 0;">
-<div>✔ Foco mental</div>
-<div>✔ Controle emocional</div>
-<div>✔ Disciplina</div>
-<div>✔ Clareza interna</div>
-</div>
+<img src="coroa.png" alt="Mente Alfa">
 
-<a href="#oferta" class="btn">QUERO REPROGRAMAR MINHA MENTE</a>
-<p style="color:#999;margin-top:15px;">Acesso imediato • Garantia de 7 dias</p>
-</div>
-
-<div style="flex:1;min-width:320px;text-align:center;position:relative;">
-<img src="MOCKUP.png" style="width:420px;opacity:.25;position:absolute;left:50%;transform:translateX(-50%);">
-<img src="COROA.png" style="width:280px;position:relative;filter:drop-shadow(0 0 35px rgba(212,175,55,.35));">
-</div>
+<a href="#oferta" class="btn-primary">
+QUERO ACESSAR A MENTE ALFA
+</a>
 </div>
 </section>
 
-<!-- DOR -->
 <section>
 <div class="container">
-<h2 style="text-align:center;">Você não está sem força.<br><span class="gold">Está preso em um padrão invisível.</span></h2>
-<div class="grid" style="margin-top:50px;">
-<div class="card">Você começa motivado e desiste rápido</div>
-<div class="card">Sabe o que precisa fazer e não executa</div>
-<div class="card">Sua mente não desliga nunca</div>
-<div class="card">Sente que vive abaixo do seu potencial</div>
+<h2 style="text-align:center;font-size:42px;">
+Por que a maioria <span class="gold">nunca consegue mudar</span>
+</h2>
+
+<div class="grid-3">
+<div class="glass card">
+<h3>Falta de clareza</h3>
+<p>
+Você sabe que precisa evoluir, mas não sabe exatamente por onde começar.
+</p>
+</div>
+
+<div class="glass card">
+<h3>Autossabotagem</h3>
+<p>
+Sua mente cria padrões invisíveis que te puxam para trás sem você perceber.
+</p>
+</div>
+
+<div class="glass card">
+<h3>Disciplina instável</h3>
+<p>
+Você começa motivado, mas perde consistência poucos dias depois.
+</p>
+</div>
 </div>
 </div>
 </section>
 
-<!-- MECANISMO -->
 <section>
 <div class="container">
-<h2 style="text-align:center;">O mecanismo exclusivo da <span class="gold">Mente Alfa</span></h2>
-<div class="grid" style="margin-top:50px;">
-<div class="card">
-<h3>1. Interrupção</h3>
-<p>Quebra padrões automáticos de autossabotagem.</p>
+<h2 style="text-align:center;font-size:42px;">
+O que você recebe dentro da <span class="gold">Mente Alfa</span>
+</h2>
+
+<div class="grid-3">
+<div class="glass card">
+<h3>Treinamento Completo</h3>
+<p>Método estruturado para reprogramação mental profunda.</p>
 </div>
-<div class="card">
-<h3>2. Reprogramação</h3>
-<p>Substitui padrões internos limitantes.</p>
+
+<div class="glass card">
+<h3>Áudios Guiados</h3>
+<p>Para fortalecer foco e domínio emocional diariamente.</p>
 </div>
-<div class="card">
-<h3>3. Consolidação</h3>
-<p>Instala uma nova identidade mental.</p>
+
+<div class="glass card">
+<h3>Bônus Exclusivos</h3>
+<p>Materiais extras para acelerar sua transformação.</p>
 </div>
 </div>
 </div>
 </section>
 
-<!-- BENEFICIOS -->
 <section>
 <div class="container">
-<h2 style="text-align:center;">O que muda quando sua mente muda</h2>
-<div class="grid" style="margin-top:50px;">
-<div class="card"><h3>Foco</h3><p>Mais clareza para executar.</p></div>
-<div class="card"><h3>Disciplina</h3><p>Sem depender de motivação.</p></div>
-<div class="card"><h3>Controle</h3><p>Menos ansiedade interna.</p></div>
-<div class="card"><h3>Autoimagem</h3><p>Confiança em si.</p></div>
+<h2 style="text-align:center;font-size:42px;">
+Resultados reais de quem entrou
+</h2>
+
+<div class="grid-3">
+<div class="testimonial glass">
+<img src="depo1.jpg">
+</div>
+<div class="testimonial glass">
+<img src="depo2.jpg">
+</div>
+<div class="testimonial glass">
+<img src="depo3.jpg">
+</div>
 </div>
 </div>
 </section>
 
-<!-- PROVAS -->
-<section>
-<div class="container">
-<h2 style="text-align:center;">Transformações reais</h2>
-
-<div class="grid" style="margin-top:50px;">
-<div class="testimonial card"><img src="depo1.jpg"></div>
-<div class="testimonial card"><img src="depo2.jpg"></div>
-<div class="testimonial card"><img src="depo3.jpg"></div>
-</div>
-
-<div style="text-align:center;margin-top:60px;">
-<audio controls style="width:100%;max-width:500px;">
-<source src="depoimento.mp3" type="audio/mpeg">
-</audio>
-</div>
-</div>
-</section>
-
-<!-- OFERTA -->
 <section id="oferta">
-<div class="container" style="text-align:center;">
-<h2>Hoje você recebe</h2>
-
-<div class="card" style="max-width:700px;margin:auto;">
-<p>Mente Alfa — R$197</p>
-<p>Protocolo Anti-Procrastinação — R$67</p>
-<p>Áudios de Reprogramação — R$47</p>
-<p>Treinamento Emocional — R$97</p>
-<p>Grupo exclusivo — R$97</p>
-
-<p style="margin-top:30px;color:#999;">Valor total: <s>R$405</s></p>
-
-<h2 style="font-size:54px;" class="gold">R$47</h2>
-<p>ou 11x de R$5,22</p>
-
-<a href="#" class="btn">QUERO ACESSAR AGORA</a>
-</div>
-</div>
-</section>
-
-<!-- GARANTIA -->
-<section>
-<div class="container" style="text-align:center;">
-<h2>Garantia Blindada de <span class="gold">7 Dias</span></h2>
-<img src="garantia.png" style="max-width:220px;">
-<p style="max-width:700px;margin:auto;color:#ccc;line-height:1.8;">
-Se você sentir que o conteúdo não gerou valor real, devolvemos 100% do seu investimento.
+<div class="container">
+<div class="glass offer-box">
+<p class="price-old">De R$197</p>
+<p class="price-new">R$47</p>
+<p style="color:#bbb;margin-bottom:30px;">
+Pagamento único • acesso imediato • garantia de 7 dias
 </p>
+
+<a href="#" class="btn-primary">
+QUERO COMEÇAR AGORA
+</a>
+</div>
 </div>
 </section>
 
-<!-- FAQ -->
 <section>
 <div class="container">
-<h2 style="text-align:center;">Perguntas Frequentes</h2>
+<h2 style="text-align:center;font-size:42px;">
+Garantia <span class="gold">Blindada</span>
+</h2>
 
-<details>
-<summary>Isso é motivação?</summary>
-<p>Não. É reprogramação mental aplicada.</p>
+<div class="glass card" style="max-width:800px;margin:40px auto;text-align:center;">
+<p style="font-size:20px;color:#ccc;">
+Você tem 7 dias completos para testar.
+Se sentir que a Mente Alfa não é para você,
+devolvemos 100% do seu investimento.
+</p>
+</div>
+</div>
+</section>
+
+<section>
+<div class="container">
+<h2 style="text-align:center;font-size:42px;">
+Perguntas Frequentes
+</h2>
+
+<details class="glass faq-item">
+<summary>Como recebo o acesso?</summary>
+<p>O acesso é enviado imediatamente para seu e-mail após a confirmação.</p>
 </details>
 
-<details>
-<summary>Quanto tempo por dia?</summary>
-<p>De 10 a 15 minutos diários.</p>
+<details class="glass faq-item">
+<summary>Por quanto tempo tenho acesso?</summary>
+<p>O acesso é vitalício, incluindo futuras atualizações.</p>
 </details>
 
-<details>
-<summary>Recebo quando?</summary>
-<p>Imediatamente após a compra.</p>
-</details>
-
-<details>
-<summary>Funciona para qualquer pessoa?</summary>
-<p>Sim, para quem deseja mudar padrões internos.</p>
+<details class="glass faq-item">
+<summary>Funciona para iniciantes?</summary>
+<p>Sim. O método foi pensado para qualquer nível.</p>
 </details>
 </div>
 </section>
 
-<!-- CTA FINAL -->
 <section style="text-align:center;">
 <div class="container">
-<h2 style="font-size:48px;">
-A única coisa entre você
-e sua próxima versão
-é a decisão que você toma hoje.
+<h2 style="font-size:46px;margin-bottom:25px;">
+Sua mente pode continuar te limitando...
 </h2>
-<a href="#oferta" class="btn">QUERO COMEÇAR AGORA</a>
+
+<p style="font-size:20px;color:#ccc;margin-bottom:40px;">
+ou você pode decidir transformá-la hoje.
+</p>
+
+<a href="#oferta" class="btn-primary">
+QUERO MINHA TRANSFORMAÇÃO
+</a>
 </div>
 </section>
 
-<footer style="text-align:center;padding:40px;color:#777;">
-Mente Alfa © 2026
+<footer>
+Mente Alfa © 2026 — Todos os direitos reservados.
 </footer>
 
 </body>
