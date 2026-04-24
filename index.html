@@ -472,11 +472,31 @@ footer{padding:36px 5vw;border-top:1px solid rgba(255,255,255,.05);text-align:ce
 <!-- EXIT POPUP -->
 <div id="exitPopup">
   <div class="exit-box">
-    <button class="exit-close" onclick="document.getElementById('exitPopup').classList.remove('show')">✕</button>
-    <h3>Antes de sair...</h3>
-    <p>Sua vaga com o preço especial ainda está disponível. O preço pode mudar a qualquer momento. Só você pode decidir se este é o momento.</p>
-    <a href="#oferta" class="btn btn-gold" style="width:100%;" onclick="document.getElementById('exitPopup').classList.remove('show')">QUERO APROVEITAR AGORA →</a>
-    <p style="margin-top:16px;font-size:12px;color:#3A363A;cursor:pointer" onclick="document.getElementById('exitPopup').classList.remove('show')">Não, prefiro continuar como estou</p>
+    <button class="exit-close" onclick="closePopup()">✕</button>
+
+    <!-- Urgency badge -->
+    <div style="display:inline-block;background:rgba(224,48,48,.12);border:1px solid rgba(224,48,48,.4);color:#E03030;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;padding:5px 14px;border-radius:2px;margin-bottom:20px;">⚠ Oferta expirando agora</div>
+
+    <h3 style="font-size:26px;margin-bottom:10px;">Espera — essa oferta<br><em style="color:var(--gold2);font-style:normal;">não vai aparecer de novo.</em></h3>
+
+    <p style="font-size:15px;line-height:1.75;color:#999;margin-bottom:10px;">Essa é uma condição <strong style="color:#fff;">exclusiva e única</strong> que está disponível <strong style="color:#fff;">somente agora</strong>, neste exato momento. Se você fechar essa janela, ela desaparece para sempre.</p>
+
+    <div style="background:rgba(201,153,42,.06);border:1px solid rgba(201,153,42,.2);border-radius:4px;padding:16px 20px;margin-bottom:20px;text-align:left;">
+      <p style="font-size:12px;color:var(--muted);margin-bottom:4px;text-transform:uppercase;letter-spacing:2px;font-weight:600;">Oferta especial — acesso imediato</p>
+      <div style="display:flex;align-items:baseline;gap:10px;margin-top:4px;">
+        <span style="font-size:15px;color:#444;text-decoration:line-through;">De R$197</span>
+        <span style="font-family:'Bebas Neue',sans-serif;font-size:42px;color:var(--gold2);line-height:1;">R$47</span>
+      </div>
+      <p style="font-size:12px;color:var(--muted);margin-top:4px;">Pagamento único · Acesso vitalício · Garantia de 7 dias</p>
+    </div>
+
+    <a href="https://pay.kiwify.com.br/V600BAY" target="_blank" class="btn btn-gold" style="width:100%;font-size:15px;padding:18px 24px;border-radius:6px;">
+      SIM, QUERO GARANTIR AGORA →
+    </a>
+
+    <p style="margin-top:8px;font-size:11px;color:#3A363A;">🔒 Ambiente 100% seguro — Kiwify</p>
+
+    <p style="margin-top:16px;font-size:12px;color:#2E2C2E;cursor:pointer;text-decoration:underline;" onclick="closePopup()">Não, prefiro perder essa oportunidade</p>
   </div>
 </div>
 
