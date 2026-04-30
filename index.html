@@ -344,7 +344,11 @@ footer{padding:36px 5vw;border-top:1px solid rgba(255,255,255,.05);text-align:ce
 [data-lego="right"]  { transform: translateX( 40px); }
 [data-lego="zoom"]   { transform: scale(0.75); }
 
-
+[data-lego].lego-in {
+  opacity: 1;
+  transform: translate(0,0) scale(1);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
 </style>
 
 <section class="diag-section" id="diagnostico">
@@ -361,70 +365,18 @@ footer{padding:36px 5vw;border-top:1px solid rgba(255,255,255,.05);text-align:ce
 
 <script>
 (function () {
-  var section = document.getElementById('diagnostico');
-  if (!section) return;
-
-  var pieces = Array.from(section.querySelectorAll('[data-lego]'));
-  if (!pieces.length) return;
-
-  // Transição suave mínima enquanto rola
-  pieces.forEach(function(el) {
-    el.style.transition = 'opacity 0.08s linear, transform 0.08s linear';
-  });
-
-  var maxDelay = Math.max.apply(null, pieces.map(function(el) {
-    return parseInt(el.dataset.legoDelay || 0);
-  }));
-
-  /* ---------- cálculo do progresso global (0-1) ---------- */
-  function getProgress() {
-    var scrollTop    = window.pageYOffset || document.documentElement.scrollTop;
-    var sectionTop   = section.getBoundingClientRect().top + scrollTop;
-    var windowH      = window.innerHeight;
-
-    // Começa quando o topo da seção toca a borda inferior da janela
-    var animStart = sectionTop - windowH;
-    // Completa quando o topo da seção está a 35% da janela
-    var animEnd   = sectionTop - windowH * 0.35;
-
-    if (scrollTop <= animStart) return 0;
-    if (scrollTop >= animEnd)   return 1;
-    return (scrollTop - animStart) / (animEnd - animStart);
-  }
-
-  /* ---------- aplica estado de cada camada ---------- */
-  function applyLayer(el, p) {
-    p = Math.min(1, Math.max(0, p));
-    var dir = el.dataset.lego;
-    var transform = '';
-
-    if      (dir === 'zoom')   { transform = 'scale(' + (0.75 + 0.25 * p) + ')'; }
-    else if (dir === 'bottom') { transform = 'translateY(' + (40 * (1 - p)) + 'px)'; }
-    else if (dir === 'top')    { transform = 'translateY(' + (-40 * (1 - p)) + 'px)'; }
-    else if (dir === 'left')   { transform = 'translateX(' + (-40 * (1 - p)) + 'px)'; }
-    else if (dir === 'right')  { transform = 'translateX(' + (40 * (1 - p)) + 'px)'; }
-
-    el.style.opacity   = p;
-    el.style.transform = transform;
-  }
-
-  function update() {
-    var total = getProgress();
-
-    pieces.forEach(function(el) {
-      var delay      = parseInt(el.dataset.legoDelay || 0);
-      // Cada camada ocupa 15% do range total; começa no seu slot proporcional
-      var layerStart = (delay / (maxDelay + 700)) * 0.85;
-      var layerEnd   = layerStart + 0.15;
-      var p          = (total - layerStart) / (layerEnd - layerStart);
-      applyLayer(el, p);
+  var pieces = document.querySelectorAll('[data-lego]');
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (!entry.isIntersecting) return;
+      var el = entry.target;
+      var delay = parseInt(el.dataset.legoDelay || '0', 10);
+      setTimeout(function() { el.classList.add('lego-in'); }, delay);
+      observer.unobserve(el);
     });
-  }
-
-  window.addEventListener('scroll', update, { passive: true });
-  window.addEventListener('resize', update, { passive: true });
-  update(); // estado inicial
-}());
+  }, { threshold: 0.1 });
+  pieces.forEach(function(el) { observer.observe(el); });
+})();
 </script>
   
 <!-- ═══════════════════════════════════
