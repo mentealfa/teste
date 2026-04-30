@@ -305,77 +305,7 @@ footer{padding:36px 5vw;border-top:1px solid rgba(255,255,255,.05);text-align:ce
   </div>
 </section>
 
-  <!-- ═══════════ CSS ═══════════ -->
-<style>
-.diag-section {
-  position: relative;
-  width: 100%;
-  background: #0a0804;
-}
-
-.diag-canvas {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 1920 / 715;
-  overflow: hidden;
-}
-
-.diag-canvas img.layer {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-}
-
-.layer-base { z-index: 0; opacity: 1; }
-
-/* ORDEM CORRETA:
-   marrom(1) → laranja(2) → borda(3) → logo(4) → texto branco(5) → texto dourado(6) */
-.layer-marrom  { z-index: 1; mix-blend-mode: screen; }
-.layer-laranja { z-index: 2; mix-blend-mode: screen; }
-.layer-borda   { z-index: 3; mix-blend-mode: screen; }
-.layer-logo    { z-index: 4; mix-blend-mode: screen; }
-.layer-texto   { z-index: 5; mix-blend-mode: screen; }
-.layer-autor   { z-index: 6; mix-blend-mode: screen; }
-
-/* ── Animação Lego ── */
-[data-lego] {
-  opacity: 0 !important;
-  will-change: transform, opacity;
-}
-[data-lego="top"]    { transform: translateY(-5%) scale(0.95); }
-[data-lego="bottom"] { transform: translateY( 5%) scale(0.95); }
-[data-lego="left"]   { transform: translateX(-5%) scale(0.95); }
-[data-lego="right"]  { transform: translateX( 5%) scale(0.95); }
-[data-lego="zoom"]   { transform: scale(0.7); }
-
-[data-lego].lego-in {
-  opacity: 1 !important;
-  transform: translate(0,0) scale(1);
-  transition:
-    opacity   0.55s cubic-bezier(0.22,1,0.36,1),
-    transform 0.55s cubic-bezier(0.22,1,0.36,1);
-}
-
-@keyframes lego-snap {
-  0%   { transform: scale(1.025); }
-  50%  { transform: scale(0.985); }
-  80%  { transform: scale(1.01);  }
-  100% { transform: scale(1);     }
-}
-[data-lego].lego-snap {
-  animation: lego-snap 0.28s ease forwards;
-}
-</style>
-
-<!-- ═══════════ HTML ═══════════ -->
-<section class="diag-section" id="diagnostico">
-  <div class="diag-canvas">
-
-    <!-- ═══════════ CSS ═══════════ -->
+<!-- ═══════════ CSS ═══════════ -->
 <style>
 .diag-section {
   position: relative;
@@ -506,7 +436,6 @@ footer{padding:36px 5vw;border-top:1px solid rgba(255,255,255,.05);text-align:ce
   pieces.forEach(function(el) { observer.observe(el); });
 })();
 </script>
-
 <!-- ═══════════════════════════════════
      PROBLEM
 ═══════════════════════════════════ -->
