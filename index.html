@@ -324,9 +324,6 @@ footer{padding:36px 5vw;border-top:1px solid rgba(255,255,255,.05);text-align:ce
   width: 100%;
   aspect-ratio: 1920 / 715;
   overflow: hidden;
-
-  /* progresso global */
-  --p: 0;
 }
 
 /* CAMADAS */
@@ -336,7 +333,6 @@ footer{padding:36px 5vw;border-top:1px solid rgba(255,255,255,.05);text-align:ce
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
   display: block;
 }
 
@@ -348,39 +344,11 @@ footer{padding:36px 5vw;border-top:1px solid rgba(255,255,255,.05);text-align:ce
 .layer-texto  { z-index: 5; }
 .layer-autor  { z-index: 6; }
 
-/* ===== SISTEMA LEGO COM DELAY ===== */
+/* estado base */
 [data-lego]{
-  --delay: 0; /* padrão */
-
-  /* cria um atraso individual baseado no data-lego-delay */
-  --local-p: calc((var(--p) - var(--delay)) / (1 - var(--delay)));
-
-  /* trava entre 0 e 1 */
-  --local-p: clamp(0, var(--local-p), 1);
-
-  opacity: calc(0.2 + var(--local-p) * 0.8);
+  opacity: 0;
+  transform: translate(0,0) scale(0.9);
   will-change: transform, opacity;
-}
-
-/* DIREÇÕES */
-[data-lego="top"]{
-  transform: translateY(calc((1 - var(--local-p)) * -60px));
-}
-
-[data-lego="bottom"]{
-  transform: translateY(calc((1 - var(--local-p)) * 60px));
-}
-
-[data-lego="left"]{
-  transform: translateX(calc((1 - var(--local-p)) * -60px));
-}
-
-[data-lego="right"]{
-  transform: translateX(calc((1 - var(--local-p)) * 60px));
-}
-
-[data-lego="zoom"]{
-  transform: scale(calc(0.75 + var(--local-p) * 0.25));
 }
 </style>
 
@@ -397,41 +365,46 @@ footer{padding:36px 5vw;border-top:1px solid rgba(255,255,255,.05);text-align:ce
   </div>
 </section>
 
-
 <script>
 const canvas = document.querySelector('.diag-canvas');
 const items = document.querySelectorAll('[data-lego]');
-
-/* converte delay HTML para variável CSS */
-items.forEach(el => {
-  const delay = el.getAttribute('data-lego-delay');
-  if(delay){
-    el.style.setProperty('--delay', delay);
-  }
-});
 
 function updateLego(){
   const rect = canvas.getBoundingClientRect();
   const vh = window.innerHeight;
 
-  const start = vh;
-  const end = rect.height * 0.5;
-
-  let progress = (start - rect.top) / (start + end);
-
+  // cálculo do progresso (0 → 1)
+  let progress = (vh - rect.top) / (vh + rect.height * 0.5);
   progress = Math.max(0, Math.min(1, progress));
 
-  /* easing premium */
-  progress = 1 - Math.pow(1 - progress, 3);
+  // percorre cada item
+  items.forEach(el => {
+    const delay = parseFloat(el.dataset.delay || 0);
 
-  canvas.style.setProperty('--p', progress);
+    // progresso individual com delay
+    let local = (progress - delay) / (1 - delay);
+    local = Math.max(0, Math.min(1, local));
+
+    // animação
+    let x = 0, y = 0, scale = 1;
+
+    const type = el.dataset.lego;
+
+    if(type === "top") y = -60 * (1 - local);
+    if(type === "bottom") y = 60 * (1 - local);
+    if(type === "left") x = -60 * (1 - local);
+    if(type === "right") x = 60 * (1 - local);
+    if(type === "zoom") scale = 0.75 + (local * 0.25);
+
+    el.style.transform = `translate(${x}px, ${y}px) scale(${scale})`;
+    el.style.opacity = local;
+  });
 }
 
 window.addEventListener('scroll', updateLego);
 window.addEventListener('resize', updateLego);
 updateLego();
 </script>
-
 <!-- ═══════════════════════════════════
      SOLUTION — MÓDULOS + IMAGEM
 ═══════════════════════════════════ -->
