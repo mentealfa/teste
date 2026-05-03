@@ -82,7 +82,7 @@ body{background:var(--dark);color:var(--text);font-family:'Poppins',sans-serif;o
 .marquee-wrap{
   width:100%;
   overflow:hidden;
-  background:transparent;
+  background:#000; /* importante pro blend funcionar bem */
   padding:0;
   line-height:0;
 
@@ -93,7 +93,7 @@ body{background:var(--dark);color:var(--text);font-family:'Poppins',sans-serif;o
 .marquee-track{
   display:flex;
   align-items:center;
-  gap:-2px; /* espaço entre imagens */
+  gap:0px; /* gap negativo não funciona */
   width:max-content;
   animation:marquee 18s linear infinite;
 }
@@ -103,6 +103,12 @@ body{background:var(--dark);color:var(--text);font-family:'Poppins',sans-serif;o
   height:90px;
   width:auto;
   flex-shrink:0;
+
+  /* ===== CHROMA FAKE ===== */
+  mix-blend-mode: lighten;
+
+  /* leve ajuste pra melhorar contraste */
+  filter: brightness(1.1) contrast(1.1);
 }
 
 @keyframes marquee{
