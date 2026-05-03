@@ -312,18 +312,25 @@ footer{padding:36px 5vw;border-top:1px solid rgba(255,255,255,.05);text-align:ce
 
 <!-- O RESTANTE DO SEU CÓDIGO CONTINUA AQUI NORMALMENTE -->
 
+```html
 <style>
 .diag-section {
   position: relative;
   width: 100%;
   background: #0a0804;
 }
+
 .diag-canvas {
   position: relative;
   width: 100%;
   aspect-ratio: 1920 / 715;
   overflow: hidden;
+
+  /* progresso global */
+  --p: 0;
 }
+
+/* CAMADAS */
 .diag-canvas img.layer {
   position: absolute;
   inset: 0;
@@ -333,6 +340,7 @@ footer{padding:36px 5vw;border-top:1px solid rgba(255,255,255,.05);text-align:ce
   object-position: center;
   display: block;
 }
+
 .layer-base   { z-index: 0; }
 .layer-laranja{ z-index: 1; }
 .layer-marrom { z-index: 2; }
@@ -341,22 +349,42 @@ footer{padding:36px 5vw;border-top:1px solid rgba(255,255,255,.05);text-align:ce
 .layer-texto  { z-index: 5; }
 .layer-autor  { z-index: 6; }
 
-[data-lego] {
-  opacity: 0;
+/* ===== SISTEMA LEGO COM DELAY ===== */
+[data-lego]{
+  --delay: 0; /* padrão */
+
+  /* cria um atraso individual baseado no data-lego-delay */
+  --local-p: calc((var(--p) - var(--delay)) / (1 - var(--delay)));
+
+  /* trava entre 0 e 1 */
+  --local-p: clamp(0, var(--local-p), 1);
+
+  opacity: calc(0.2 + var(--local-p) * 0.8);
   will-change: transform, opacity;
 }
-[data-lego="top"]    { transform: translateY(-40px); }
-[data-lego="bottom"] { transform: translateY( 40px); }
-[data-lego="left"]   { transform: translateX(-40px); }
-[data-lego="right"]  { transform: translateX( 40px); }
-[data-lego="zoom"]   { transform: scale(0.75); }
 
-[data-lego].lego-in {
-  opacity: 1;
-  transform: translate(0,0) scale(1);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+/* DIREÇÕES */
+[data-lego="top"]{
+  transform: translateY(calc((1 - var(--local-p)) * -60px));
+}
+
+[data-lego="bottom"]{
+  transform: translateY(calc((1 - var(--local-p)) * 60px));
+}
+
+[data-lego="left"]{
+  transform: translateX(calc((1 - var(--local-p)) * -60px));
+}
+
+[data-lego="right"]{
+  transform: translateX(calc((1 - var(--local-p)) * 60px));
+}
+
+[data-lego="zoom"]{
+  transform: scale(calc(0.75 + var(--local-p) * 0.25));
 }
 </style>
+
 
 <section class="diag-section" id="diagnostico">
   <div class="diag-canvas">
@@ -370,20 +398,39 @@ footer{padding:36px 5vw;border-top:1px solid rgba(255,255,255,.05);text-align:ce
   </div>
 </section>
 
+
 <script>
-(function () {
-  var pieces = document.querySelectorAll('[data-lego]');
-  var observer = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (!entry.isIntersecting) return;
-      var el = entry.target;
-      var delay = parseInt(el.dataset.legoDelay || '0', 10);
-      setTimeout(function() { el.classList.add('lego-in'); }, delay);
-      observer.unobserve(el);
-    });
-  }, { threshold: 0.1 });
-  pieces.forEach(function(el) { observer.observe(el); });
-})();
+const canvas = document.querySelector('.diag-canvas');
+const items = document.querySelectorAll('[data-lego]');
+
+/* converte delay HTML para variável CSS */
+items.forEach(el => {
+  const delay = el.getAttribute('data-lego-delay');
+  if(delay){
+    el.style.setProperty('--delay', delay);
+  }
+});
+
+function updateLego(){
+  const rect = canvas.getBoundingClientRect();
+  const vh = window.innerHeight;
+
+  const start = vh;
+  const end = rect.height * 0.5;
+
+  let progress = (start - rect.top) / (start + end);
+
+  progress = Math.max(0, Math.min(1, progress));
+
+  /* easing premium */
+  progress = 1 - Math.pow(1 - progress, 3);
+
+  canvas.style.setProperty('--p', progress);
+}
+
+window.addEventListener('scroll', updateLego);
+window.addEventListener('resize', updateLego);
+updateLego();
 </script>
 
 <!-- ═══════════════════════════════════
