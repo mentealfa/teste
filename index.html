@@ -97,19 +97,10 @@ body{background:var(--dark);color:var(--text);font-family:'Poppins',sans-serif;o
   flex-shrink:0;
 }
 @keyframes marquee{
-  0%  {transform:translateX(0);}
+  0%  {transform:translateX(-200px);}
   100%{transform:translateX(-721px);}
 }
 .marquee-wrap:hover .marquee-track{animation-play-state:paused;
-}
-  .marquee-wrap{
-  width:100%;
-  overflow:hidden;
-  background:transparent;
-  padding:0;
-  line-height:0;
-
-  transform: translateY(-200px); /* sobe o carrossel */
 }
   
 /* PROOF BARS */
