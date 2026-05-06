@@ -133,10 +133,10 @@ body{background:var(--dark);color:var(--text);font-family:'Poppins',sans-serif;o
 .proof-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:2px;margin-top:4px;}
 
 /* ===== PROBLEM ===== */
-.problem {
-  background: linear-gradient(180deg, var(--dark), #0D0A0D);
-  padding-top: 20px;
-  margin-top: -80px; /* ← aumenta esse número até alinhar com as linhas */
+.problem{
+  background:linear-gradient(180deg,var(--dark),#0D0A0D);
+  /* ✅ AJUSTE: padding-top reduzido para aproximar da hero */
+  padding-top: 40px;
 }
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
 .problem h2{font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,48px);line-height:1.15;margin-bottom:24px;}
@@ -243,8 +243,9 @@ footer{padding:36px 5vw;border-top:1px solid rgba(255,255,255,.05);text-align:ce
 .divider-gold{width:60px;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold2));margin:0 auto 20px;border-radius:2px;}
 
 /* ===== HERO IMAGE FULL WIDTH ===== */
-.hero-img-wrap{position:relative;width:100%;line-height:0;}
+.hero-img-wrap{position:relative;width:100%;line-height:0;overflow:hidden;}
 .hero-img-wrap img{width:100%;display:block;}
+.hero-img-wrap .hero-bg-img{margin-bottom:-150px;}
 .hero-hotspot{
   position:absolute;display:block;cursor:pointer;border-radius:50px;
   background:transparent;z-index:10;
