@@ -160,7 +160,11 @@ body{background:var(--dark);color:var(--text);font-family:'Poppins',sans-serif;o
 .quote-author{font-size:12px;color:var(--gold);letter-spacing:2.5px;text-transform:uppercase;font-weight:600;}
 
 /* ===== SOLUTION ===== */
-.solution{background:var(--dark2);position:relative;}
+.solution{
+  background: var(--dark2);
+  position: relative;
+  margin-top: -120px; /* 👈 puxa a seção pra cima */
+}
 .solution::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:700px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
 .module-img-wrap{max-width:460px;margin:0 auto;border-radius:12px;overflow:hidden;box-shadow:0 40px 120px rgba(0,0,0,.8),0 0 0 1px rgba(201,153,42,.15);}
 .module-img-wrap img{width:100%;display:block;}
