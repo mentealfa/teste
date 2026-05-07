@@ -173,11 +173,12 @@ body{background:var(--dark);color:var(--text);font-family:'Poppins',sans-serif;o
 /* ===== TRANSFORMATION ===== */
 .transformation {
   background: linear-gradient(180deg, #0D0A0D, #050305);
-  padding: 20px 20px 80px;
-  margin-top: -60px; /* ← puxa pra cima */
+  padding: 0 0 80px; /* ← zera o padding-top */
+  margin-top: -2px;  /* ← elimina qualquer gap de 1px entre seções */
   display: flex;
   justify-content: center;
 }
+
 /* ===== BONUSES ===== */
 .bonuses{background:linear-gradient(180deg,#0F0D0F,var(--dark2));}
 .bonus-cards{display:flex;flex-direction:column;gap:16px;margin-top:52px;}
