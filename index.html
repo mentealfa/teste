@@ -636,12 +636,23 @@ window.activateVSL = () => {
   document.getElementById('vslPlayer').innerHTML = '<div style="aspect-ratio:16/9;background:#0D0B0D;display:flex;align-items:center;justify-content:center;color:rgba(201,153,42,.5);font-family:Bebas Neue,sans-serif;font-size:20px;letter-spacing:4px;">VÍDEO EM BREVE</div>';
 };
 
-document.addEventListener('mouseleave', e => {
-  if (e.clientY < 10 && !sessionStorage.getItem('exitShown')) {
+(function() {
+  function showExitPopup() {
+    if (localStorage.getItem('exitShown')) return;
     document.getElementById('exitPopup').classList.add('show');
-    sessionStorage.setItem('exitShown', '1');
+    localStorage.setItem('exitShown', '1');
   }
-});
+
+  history.pushState(null, '', location.href);
+  window.addEventListener('popstate', function() {
+    showExitPopup();
+    history.pushState(null, '', location.href);
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') showExitPopup();
+  });
+})();
 </script>
 </body>
 </html>
