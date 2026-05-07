@@ -165,7 +165,7 @@ body{background:var(--dark);color:var(--text);font-family:'Poppins',sans-serif;o
   background: var(--dark2);
   position: relative;
   margin-top: -140px;
-  padding-bottom: 0 !important;
+  padding: 90px 5vw 0; /* mantém o padding-top que antes vinha de .section */
   overflow: hidden;
 }
 .solution::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:700px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
@@ -493,7 +493,7 @@ footer{padding:36px 5vw;border-top:1px solid rgba(255,255,255,.05);text-align:ce
 <!-- ═══════════════════════════════════
      SOLUTION — MÓDULOS + IMAGEM
 ═══════════════════════════════════ -->
-<section class="section solution" id="modulos">
+<section class="solution" id="modulos">
   <div class="container">
     <div class="text-center" style="margin-bottom:56px;">
       <span class="eyebrow rv">O Método</span>
