@@ -177,17 +177,20 @@ body{background:var(--dark);color:var(--text);font-family:'Poppins',sans-serif;o
   position: relative;
   width: 100%;
   background: #0a0804;
-}
+
 .diag-canvas {
   position: relative;
   width: 100%;
+  aspect-ratio: 1920 / 715;
   overflow: hidden;
-  line-height: 0;
 }
-.diag-canvas img.layer{
-  position: relative;
+.diag-canvas img.layer {
+  position: absolute;
+  inset: 0;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
   display: block;
 }
 .layer-base   { z-index: 0; }
