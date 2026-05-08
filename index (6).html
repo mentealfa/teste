@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seção Depoimentos</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#111; display:flex; justify-content:center; }
+
+.section-depoimentos {
+  position: relative;
+  width: 100%;
+  max-width: 840px;
+  aspect-ratio: 1920 / 3220;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+img.layer {
+  object-fit: cover;
+  object-position: top center;
+}
+
+#layerBg        { z-index: 0; }
+#particleCanvas { z-index: 1; pointer-events: none; }
+#layerText      { z-index: 2; pointer-events: none; }
+#layerCards     { z-index: 3; pointer-events: none; }
+
+/* Glow zones */
+.card-zones { z-index: 4; pointer-events: none; }
+.card-zone {
+  position: absolute;
+  pointer-events: all;
+  border-radius: 10px;
+  transition: box-shadow 0.3s ease;
+}
+.card-zone:hover {
+  box-shadow:
+    0 0 0 2px rgba(212,160,23,.6),
+    0 0 28px 6px  rgba(212,160,23,.4),
+    0 0 70px 14px rgba(212,160,23,.15);
+}
+
+/* Pixel-accurate card positions (from Python analysis of 1920×3220 source) */
+.card-tl { top:21.4%; left:14.4%; width:34.6%; height:20.7%; }
+.card-tr { top:21.3%; left:53.3%; width:31.2%; height:20.7%; }
+.card-bl { top:45.8%; left:14.4%; width:34.6%; height:20.7%; }
+.card-br { top:45.8%; left:53.3%; width:31.2%; height:20.7%; }
+
+/* Audio click zone over existing button in cards image */
+#audioZone {
+  position: absolute;
+  z-index: 5;
+  top: 85.5%; left: 28.3%;
+  width: 44.9%; height: 3.8%;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+  outline: none;
+}
+#audioZone.is-playing {
+  box-shadow: 0 0 18px 4px rgba(212,160,23,.45);
+}
+</style>
+</head>
+<body>
+<section class="section-depoimentos" id="depoimentos">
+
+  <!-- z0: Background pattern + golden gradient -->
+  <img id="layerBg" class="layer" src="bg.jpg" alt="" aria-hidden="true">
+
+  <!-- z1: Particles (above bg, below everything else) -->
+  <canvas id="particleCanvas" class="layer"></canvas>
+
+  <!-- z2: Text layer (flood-fill transparent PNG) -->
+  <img id="layerText" class="layer" src="text.png" alt="" aria-hidden="true">
+
+  <!-- z3: Cards layer (flood-fill transparent PNG – outer black removed) -->
+  <img id="layerCards" class="layer" src="cards.png" alt="" aria-hidden="true">
+
+  <!-- z4: Glow hover zones, pixel-accurate -->
+  <div class="layer card-zones">
+    <div class="card-zone card-tl"></div>
+    <div class="card-zone card-tr"></div>
+    <div class="card-zone card-bl"></div>
+    <div class="card-zone card-br"></div>
+  </div>
+
+  <!-- z5: Transparent audio trigger over button in cards image -->
+  <button id="audioZone" aria-label="Ouvir depoimento dos alunos"></button>
+
+  <audio id="audio" preload="none"
+    src="https://res.cloudinary.com/deax6es7v/video/upload/v1762576601/depoimento-mente-inabalavel.mp3_twwfpm.mp3">
+  </audio>
+
+</section>
+<script>
+/* ── PARTICLES ── full section height, z-index 1 */
+(function(){
+  var canvas  = document.getElementById('particleCanvas');
+  var section = document.getElementById('depoimentos');
+  var ctx     = canvas.getContext('2d');
+  var W, H, pool = [];
+
+  function resize(){ W = canvas.width = section.offsetWidth; H = canvas.height = section.offsetHeight; }
+
+  function newP(sy){
+    return {
+      x:     Math.random() * W,
+      y:     sy !== undefined ? sy : H + 4,
+      size:  0.5 + Math.random() * 2.0,
+      speed: 0.18 + Math.random() * 0.55,
+      drift: (Math.random() - 0.5) * 0.28,
+      hue:   38  + Math.random() * 16,
+      sat:   70  + Math.random() * 30,
+      lit:   55  + Math.random() * 30,
+      phase: Math.random() * Math.PI,
+      age:   0,
+      life:  240 + Math.random() * 200
+    };
+  }
+
+  function init(){
+    pool = [];
+    for(var i = 0; i < 90; i++){
+      var p = newP(Math.random() * H);
+      p.age = Math.random() * p.life;
+      pool.push(p);
+    }
+  }
+
+  function draw(){
+    ctx.clearRect(0, 0, W, H);
+    while(pool.length < 90) pool.push(newP());
+
+    for(var i = pool.length - 1; i >= 0; i--){
+      var p = pool[i];
+      p.age++; p.y -= p.speed; p.x += p.drift;
+
+      if(p.age > p.life || p.y < -6){
+        pool.splice(i, 1);
+        pool.push(newP());
+        continue;
+      }
+
+      var t    = p.age / p.life;
+      var fade = t < 0.15 ? t / 0.15 : t > 0.75 ? (1 - t) / 0.25 : 1;
+      var alpha = fade * (0.5 + 0.28 * Math.sin(p.phase + p.age * 0.04));
+
+      ctx.save();
+      ctx.globalAlpha = Math.max(0, alpha);
+      ctx.shadowBlur  = p.size * 8;
+      ctx.shadowColor = 'hsl(' + p.hue + ',' + p.sat + '%,' + p.lit + '%)';
+      ctx.fillStyle   = 'hsl(' + p.hue + ',' + p.sat + '%,' + p.lit + '%)';
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+    }
+    requestAnimationFrame(draw);
+  }
+
+  window.addEventListener('resize', function(){ resize(); init(); });
+  resize(); init(); draw();
+})();
+
+/* ── AUDIO ── transparent zone over existing button */
+(function(){
+  var zone  = document.getElementById('audioZone');
+  var audio = document.getElementById('audio');
+  zone.addEventListener('click', function(){
+    audio.paused ? audio.play().catch(function(){}) : audio.pause();
+  });
+  audio.addEventListener('play',  function(){ zone.classList.add('is-playing'); });
+  audio.addEventListener('pause', function(){ zone.classList.remove('is-playing'); });
+  audio.addEventListener('ended', function(){ zone.classList.remove('is-playing'); });
+})();
+</script>
+</body>
+</html>
