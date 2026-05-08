@@ -255,10 +255,10 @@ body{background:var(--dark);color:var(--text);font-family:'Poppins',sans-serif;o
   
 .section-divider {
   position: absolute;
-  bottom: -30px;           /* metade da altura — centraliza na junção */
+  bottom: 0;                              /* ancora na borda inferior da transformation */
   left: 50%;
-  transform: translateX(-50%);
-  width: 60%;              /* ajuste até encaixar no tamanho certo */
+  transform: translateX(-50%) translateY(50%); /* centraliza exatamente na junção */
+  width: 55%;                             /* ajuste até ficar igual ao risco dourado */
   z-index: 20;
   pointer-events: none;
   line-height: 0;
@@ -266,7 +266,7 @@ body{background:var(--dark);color:var(--text);font-family:'Poppins',sans-serif;o
 .section-divider img {
   width: 100%;
   display: block;
-  mix-blend-mode: screen;  /* remove o preto, só o dourado aparece */
+  mix-blend-mode: screen;
 }
 
   /* ===== SEÇÃO DEPOIMENTOS ===== */
