@@ -248,6 +248,21 @@ body{background:var(--dark);color:var(--text);font-family:'Poppins',sans-serif;o
   object-fit:contain;
 }
 
+  .section-divider {
+  width: 100%;
+  line-height: 0;
+  overflow: hidden;
+  background: transparent;
+  margin: -2px 0; /* fecha qualquer linha fina entre seções */
+}
+
+.section-divider img {
+  width: 100%;
+  display: block;
+  mix-blend-mode: screen; /* remove o preto, deixa só o dourado */
+  opacity: 0.9;           /* ajuste fino de intensidade (0.7 a 1.0) */
+}
+
   /* ===== SEÇÃO DEPOIMENTOS ===== */
 .dep-section {
   position: relative;
